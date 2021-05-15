@@ -1,4 +1,4 @@
-import { Tile } from "../models/Tile.js";
+import { Tile } from "../models/Snake.js";
 
 export default class Food {
 	/**
@@ -31,10 +31,10 @@ export default class Food {
 	}
 	
 	/**
-	 * 
-	 * @param context 
+	 * Draws the piece of food on the parent canvas.
+	 * @param context Canvas upon which to draw the piece of food.
 	 */
-	drawOnCanvas(context: CanvasRenderingContext2D) {
+	public drawOnCanvas(context: CanvasRenderingContext2D) {
 		context.fillStyle = this.foodColor;
 		context.strokeStyle = this.foodBorderColor;
 
@@ -43,23 +43,21 @@ export default class Food {
 	}
 
 	/**
-	 * generate coordinates for the piece of food.
-	 * @param {Array} tiles - array of tiles that the snake occupies 
-	 * @returns {void}
+	 * Generate coordinates for the piece of food.
+	 * @param tiles Array of tiles that the snake occupies 
 	 */
-	generateCoordinates(tiles: Tile[]) {
-		this.x = this.randomCoordinate(0, this.XLimit - this.foodSize);
-		this.y = this.randomCoordinate(0, this.YLimit - this.foodSize);
+	public generateCoordinates(tiles: Tile[]) {
+		this.x = this.getRandomCoordinate(0, this.XLimit - this.foodSize);
+		this.y = this.getRandomCoordinate(0, this.YLimit - this.foodSize);
 
 		// as long as the generated coordinates overlap with the snake's tiles, call this function again to generate another pair of coordinates
 		while (this.foodCollidesWithSnake(tiles))
 			this.generateCoordinates(tiles);
 	}
 	
-	
 	/**
-	 * Check whether the randomly generated piece of food collides with any of the snake's tiles.
-	 * @param tiles Snake's array of tiles
+	 * Checks whether the randomly generated piece of food collides with any of the snake's tiles.
+	 * @param tiles Snake's array of tiles.
 	 * @returns 
 	 */
 	private foodCollidesWithSnake(tiles: Tile[]): boolean {
@@ -72,7 +70,7 @@ export default class Food {
 	 * @param max - The furthest place on the canvas upon which the piece of food can be generated
 	 * @returns A random number representing a coordinate. Note that this isn't an (x, y) pair. it's just a single number
 	 */
-	private randomCoordinate(min: number, max: number): number {
+	private getRandomCoordinate(min: number, max: number): number {
 		return Math.round((Math.random() * (max - min) + min) / this.foodSize) * this.foodSize;
 	}
 }
