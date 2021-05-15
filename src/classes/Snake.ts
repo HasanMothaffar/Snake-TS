@@ -1,6 +1,5 @@
 import { Drawable } from '../models/Drawable.js';
-import { Tile } from '../models/Tile.js';
-import Canvas from './Canvas.js';
+import { Tile } from '../models/Snake.js';
 import Food from './Food.js';
 
 export default class Snake implements Drawable {
