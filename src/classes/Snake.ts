@@ -38,7 +38,6 @@ export default class Snake implements Drawable {
 
 	public drawOnCanvas(context: CanvasRenderingContext2D) {
 		this.tiles.forEach((tile, tileIndex) => {
-			console.log('drawing');
 			this.drawSnakeTile(tile, tileIndex, context);
 		});
 	}
@@ -49,6 +48,13 @@ export default class Snake implements Drawable {
 			y: this.tiles[0].y + this.verticalSpeed
 		}
 
+		this.tiles.unshift(head);
+		if (head.x === food.xCoordinate && head.y === food.yCoordinate) {
+			food.generateCoordinates(this.tiles);
+		}
+		else {
+			this.tiles.pop();
+		}
 	}
 
 	private resetSpeeds() {
