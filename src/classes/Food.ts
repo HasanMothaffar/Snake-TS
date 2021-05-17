@@ -2,22 +2,22 @@ import { Tile } from "../models/Snake.js";
 
 export default class Food {
 	/**
-	 * X coordinate for the food
+	 * The food's X coordinate.
 	 */
 	private x!: number;
 
 	/**
-	 * Y coordinate for the food
+	 * The food's Y coordinate.
 	 */
 	private y!: number;
 
 	/**
-	 * Initialize a new piece of food for the snake
-	 * @param foodSize Size of the food tile
-	 * @param foodColor Fill color for the piece of food
-	 * @param foodBorderColor Fill color for the border of the piece of food
-	 * @param XLimit Horizontal boundary that the food's coordinates cannot exceed
-	 * @param YLimit Vertical boundary that the food's coordinates cannot exceed
+	 * Initializes a new piece of food for the snake.
+	 * @param foodSize Size of the food tile.
+	 * @param foodColor Fill color for the piece of food.
+	 * @param foodBorderColor Fill color for the border of the piece of food.
+	 * @param XLimit Horizontal boundary that the food's coordinates cannot exceed.
+	 * @param YLimit Vertical boundary that the food's coordinates cannot exceed.
 	 */
 	constructor(
 		 private foodSize: number,
@@ -27,7 +27,23 @@ export default class Food {
 		 private XLimit: number,
 		 private YLimit: number,
 	) { 
-		
+
+	}
+
+	/* -- Getters that are used in the Snake.ts class -- */
+
+	/**
+	 * Returns the food's X coordinate.
+	 */
+	get xCoordinate(): number {
+		return this.x;
+	}
+
+	/**
+	 * Returns the food's Y coordinate.
+	 */
+	get yCoordinate(): number {
+		return this.y;
 	}
 	
 	/**
@@ -43,14 +59,14 @@ export default class Food {
 	}
 
 	/**
-	 * Generate coordinates for the piece of food.
-	 * @param tiles Array of tiles that the snake occupies 
+	 * Generates coordinates for the piece of food.
+	 * @param tiles Array of tiles that the snake occupies.
 	 */
 	public generateCoordinates(tiles: Tile[]) {
 		this.x = this.getRandomCoordinate(0, this.XLimit - this.foodSize);
 		this.y = this.getRandomCoordinate(0, this.YLimit - this.foodSize);
 
-		// as long as the generated coordinates overlap with the snake's tiles, call this function again to generate another pair of coordinates
+		// As long as the generated coordinates overlap with the snake's tiles, call this function again to generate another pair of coordinates.
 		while (this.foodCollidesWithSnake(tiles))
 			this.generateCoordinates(tiles);
 	}
@@ -65,10 +81,10 @@ export default class Food {
 	}
 
 	/**
-	 * Generate a random coordinate for the snake's food
-	 * @param min - Usually 0, which is the starting point of the canvas
-	 * @param max - The furthest place on the canvas upon which the piece of food can be generated
-	 * @returns A random number representing a coordinate. Note that this isn't an (x, y) pair. it's just a single number
+	 * Generates a random coordinate for the piece of food.
+	 * @param min Usually 0, which is the starting point of the canvas.
+	 * @param max The furthest point on the canvas upon which the piece of food can be generated.
+	 * @returns A random number representing a coordinate. Note that this isn't an (x, y) pair. it's just a single number.
 	 */
 	private getRandomCoordinate(min: number, max: number): number {
 		return Math.round((Math.random() * (max - min) + min) / this.foodSize) * this.foodSize;
