@@ -1,11 +1,31 @@
 import { Drawable } from "../models/Drawable.js";
+import { ColorTheme } from '../models/types';
 
 export default class Canvas {
 
+	/**
+	 * The canvas' DOM element reference.
+	 */
 	private canvas: HTMLCanvasElement;
-	private ctx: CanvasRenderingContext2D;
-	private colorTheme: string = 'white';
 
+	/**
+	 * The actual 2D context upon which we draw things in the canvas.
+	 */
+	private ctx: CanvasRenderingContext2D;
+
+	/**
+	 * The color theme of the canvas. Supported values are dark and white.
+	 */
+	private colorTheme: ColorTheme = 'white';
+
+	/**
+	 * 
+	 * @param id ID of the canvas' DOM element.
+	 * @param width Width of the canvas.
+	 * @param height Height of the canvas.
+	 * @param backgroundColor Background color of the canvas
+	 * @param borderColor Border color of the canvas
+	 */
 	constructor(	
 		id: string = 'canvas',
 
@@ -15,6 +35,8 @@ export default class Canvas {
 		private backgroundColor: string = '#846A6A',
 		private borderColor: string = 'silver'
 	) {
+
+		// Initialize the canvas' 2D context
 		this.canvas = document.getElementById(id) as HTMLCanvasElement;
 		this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
 
@@ -24,20 +46,20 @@ export default class Canvas {
 	/**
 	 * Sets the correct width and height values for the canvas.
 	 */
-	private adjustDimensions() {
-		// these are html attributes. required for proper rendering of the canvas element
+	private adjustDimensions(): void {
+		// These are html attributes, which are required for proper rendering of the canvas element.
 		this.canvas.setAttribute('width', this.width.toString());
 		this.canvas.setAttribute('height', this.height.toString());
 
-		// these are css properties for the real width and height properties
+		// These are the css properties for the real width and height properties.
 		this.canvas.style.width = this.width + 'px';
 		this.canvas.style.height = this.height + 'px';
 	}
 
 	/**
-	 * Clears the canvas.
+	 * Clears the canvas and removes any drawn element.
 	 */
-	public clear() {
+	public clear(): void {
 		this.ctx.fillStyle = this.backgroundColor;
 		this.ctx.strokeStyle = this.borderColor;
 
@@ -46,28 +68,31 @@ export default class Canvas {
 	}
 
 	/**
-	 * Calls the element's own rendering function.
+	 * Calls the rendering function of the element that you want to draw on the canvas.
 	 * @param element Element to be rendered on the canvas.
 	 */
-	public drawElement(element: Drawable) {
+	public drawElement(element: Drawable): void {
 		element.drawOnCanvas(this.ctx);
 	}
 
 	/* -- COLOR THEME LOGIC -- */
 	
-	private setWhiteMode() {
+	private setWhiteMode(): void {
 		this.backgroundColor = '#846A6A';
 		this.borderColor = 'silver';
 		this.colorTheme = 'white';
 	}
 
-	private setDarkMode() {
+	private setDarkMode(): void {
 		this.backgroundColor = 'black';
 		this.borderColor = 'yellow';
 		this.colorTheme = 'dark';
 	}
 
-	public switchColorTheme() {
+	/**
+	 * Switches color themes between dark and white modes.
+	 */
+	public switchColorTheme(): void {
 		if (this.colorTheme == 'white') {
 			this.setDarkMode();
 		}
