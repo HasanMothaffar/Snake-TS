@@ -50,7 +50,7 @@ export default class Food {
 	 * Draws the piece of food on the parent canvas.
 	 * @param context Canvas upon which to draw the piece of food.
 	 */
-	public drawOnCanvas(context: CanvasRenderingContext2D) {
+	public drawOnCanvas(context: CanvasRenderingContext2D): void {
 		context.fillStyle = this.foodColor;
 		context.strokeStyle = this.foodBorderColor;
 
@@ -62,7 +62,7 @@ export default class Food {
 	 * Generates coordinates for the piece of food.
 	 * @param tiles Array of tiles that the snake occupies.
 	 */
-	public generateCoordinates(tiles: Tile[]) {
+	public generateCoordinates(tiles: Tile[]): void {
 		this.x = this.getRandomCoordinate(0, this.XLimit - this.foodSize);
 		this.y = this.getRandomCoordinate(0, this.YLimit - this.foodSize);
 
