@@ -82,7 +82,17 @@ export default class Game {
 	}
 
 	private renderGame() {
+
+		if (this.hasSnakeGameEnded()) {
+			alert('Snake is dead. Press "r" to restart the game.');
+			clearInterval(this.gameInterval);
+			this.running = false;
+			return;
+		}
+
 		this.canvas.clear();
+
+		this.snake.move(this.food);
 
 		this.canvas.drawElement(this.snake);
 		this.canvas.drawElement(this.food);
