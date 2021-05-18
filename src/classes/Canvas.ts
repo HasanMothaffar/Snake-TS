@@ -1,5 +1,4 @@
-import { Drawable } from "../models/Drawable.js";
-import { ColorTheme } from '../models/types';
+import { Drawable, ColorTheme } from "../models/index.js";
 
 export default class Canvas {
 
