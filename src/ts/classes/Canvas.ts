@@ -31,7 +31,7 @@ export default class Canvas {
 		public readonly width: number = 300,
 		public readonly height: number = 300,
 		
-		private backgroundColor: string = '#846A6A',
+		private backgroundColor: string = '#be8984',
 		private borderColor: string = 'silver'
 	) {
 

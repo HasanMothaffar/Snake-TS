@@ -1,0 +1,40 @@
+.toggle {
+	height: 32px;
+	width: 65px;
+
+	border-radius: 15px;
+	border: 2px solid #474755;
+	
+	position: relative;	
+	transition: all .2s ease;
+	background: linear-gradient(180deg, #2D2F39 0%, #1F2027 100%);
+	cursor: pointer;	
+	
+	&::after {
+		content: '';
+
+		width: 24px;
+		height: 24px;
+		
+		position: absolute;
+		top: 2px;
+		left: 2px;
+		
+		border-radius: 50%;
+		
+		background: white;
+		box-shadow: 0 1px 2px rgba(44,44,44,.2);
+		
+		transition: all .2s cubic-bezier(.5,.1,.75,1.35);
+	}
+
+	&:checked {
+		border-color: #654FEC;
+		background: white;
+	}
+}
+
+.toggle:checked::after {
+	transform: translateX(35px);
+	background: linear-gradient(180deg, #2D2F39 0%, #1F2027 100%);
+}

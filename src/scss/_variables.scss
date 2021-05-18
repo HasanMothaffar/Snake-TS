@@ -1,11 +1,11 @@
 :root {
-	--background-color: red;
+	--background-color: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
 	--text-color: #000000;
 	--canvas-border-color: silver;
 }
 
 :root.dark {
-	--background-color: #404142;
+	--background-color: linear-gradient(315deg, #485461 0%, #28313b 74%);
 	--text-color: white;
 	--canvas-border-color: #666565;
 }

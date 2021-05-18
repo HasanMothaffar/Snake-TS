@@ -1,58 +1,40 @@
-@use "./variables.scss";
+@use "./variables";
+@use "./switch_button";
 
 html {
 	height: 100%;
 	font-size: 16px;
-	font-family: 'Gill Sans MT';
+	font-family: Poppins;
 	color: var(--text-color);
 }
 
 body {
 	height: 100%;
+	margin: 0;
+
 	display: flex;
 	flex-flow: row wrap;
-	margin: 0;
 	align-items: center;
 	justify-content: space-around;
-	/* background-color: #f1dfd1;
-	background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%); */
-	background-color: var(--background-color);
+	
+	background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+	position: relative;
+	z-index: 1;
+
 	transition: all .2s ease-out;
 }
 
+/*
+	Canvas elements actually require both css styles and inline html styles.
+	Read more about this on the Internet
+*/
 canvas {
 	background: white;
-	width: 400px;
-	height: 400px;
 	border-radius: 10px;
-	margin-bottom: 30px;
 }
-
-/* canvas actually requires both css styles and in-line html styles. read more about this on the Internet */
-
-/* the layout of the page is basically two divs that are contained in a flex container
-	they are .game-wrapper and .options-wrapper
-*/
-
-.game-wrapper {
-	display: flex;
-	flex-flow: column nowrap;
-	align-items: center;
-}
-
-.options-wrapper {
-	/* border: 1px solid black; */
-	height: 70%;
-}
-
 
 input[type="checkbox"] {
 	appearance: none;
-	cursor: pointer;
-	outline: none; 
-	/*
-	* the outline: none property helps to remove the stupid border that appears around the button when clicked
-	*/
 }
 
 .input-group {
@@ -69,40 +51,6 @@ input[type="checkbox"] {
 	font-weight: bold;
 }
 
-/* STYLING FOR THE DARK MODE SWITCH BUTTON */
-
-.toggle {
-	height: 32px;
-	width: 65px;
-	border-radius: 15px;
-	transition: all .2s ease;
-	position: relative;	
-	border: 2px solid #474755;
-	background: linear-gradient(180deg, #2D2F39 0%, #1F2027 100%);
-	/* background: black; */
-}
-
-.toggle::after {
-	content: '';
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
-	box-shadow: 0 1px 2px rgba(44,44,44,.2);
-	transition: all .2s cubic-bezier(.5,.1,.75,1.35);
-	background: white;
-
-}
-
-.toggle:checked {
-	border-color: #654FEC;
-	background: white;
-}
-
-.toggle:checked::after {
-	transform: translateX(35px);
-	background: linear-gradient(180deg, #2D2F39 0%, #1F2027 100%);
-
+.game-state {
+	height: 30px;
 }
