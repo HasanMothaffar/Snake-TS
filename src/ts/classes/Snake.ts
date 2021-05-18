@@ -59,23 +59,35 @@ export default class Snake implements Drawable {
 		return this.tiles[0];
 	}
 
-	/* -- DRAWING LOGIC -- */
+	/**
+	 * Draws an individual snake tile on the canvas.
+	 * @param tile The snake tile to be drawn.
+	 * @param tileIndex The index of the tile to be drawn (useful to know if it's the head tile).
+	 * @param parentCanvasContext The 2D context of the canvas upon which the tile will be drawn.
+	 */
 	private drawSnakeTile(tile: Tile, tileIndex: number, parentCanvasContext: CanvasRenderingContext2D) {
 		parentCanvasContext.fillStyle = tileIndex === 0 ? this.headColor : this.tileColor;
 		parentCanvasContext.strokeStyle = 'darkblue';
-
+		
 		const { x, y } = tile;
-
 		parentCanvasContext.fillRect(x, y, this.tileSize, this.tileSize);
 		parentCanvasContext.strokeRect(x, y, this.tileSize, this.tileSize);
 	}
 
+	/**
+	 * Draws the whole snake on the canvas.
+	 * @param context The 2D context of the canvas upon which the tile will be drawn.
+	 */
 	public drawOnCanvas(context: CanvasRenderingContext2D) {
 		this.tiles.forEach((tile, tileIndex) => {
 			this.drawSnakeTile(tile, tileIndex, context);
 		});
 	}
 
+	/**
+	 * Moves the tiles of the snake.
+	 * @param food The piece of food that the snake will eat.
+	 */
 	public move(food: Food) {
 		const newHead: Tile = {
 			x: this.tiles[0].x + this.horizontalSpeed,
@@ -95,13 +107,19 @@ export default class Snake implements Drawable {
 		}
 	}
 
-	private resetSpeeds() {
+	/**
+	 * Resets the direction of the snake.
+	 */
+	private resetDirection() {
 		this.horizontalSpeed = (-1) * this.tileSize;
 		this.verticalSpeed = 0;
 	}
 
+	/**
+	 * Resets the current tiles array and creates a new one with new coordinates.
+	 */
 	public resetCoordinates() {
-		this.resetSpeeds();
+		this.resetDirection();
 		this._tiles = [];
 
 		let firstXPos = this.initialXPos;
