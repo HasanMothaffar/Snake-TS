@@ -1,4 +1,4 @@
-import { Tile } from "../models/Snake.js";
+import { Tile } from "../models/index.js";
 
 export default class Food {
 	/**
