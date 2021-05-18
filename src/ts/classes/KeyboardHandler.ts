@@ -48,11 +48,13 @@ export default class KeyboardHandler {
 		// Pause the game if it has already started and is currently running
 		else if (this.snakeGame.isGameRunning()) {
 			this.snakeGame.pause();
+			this.changeGameState('Paused...');
 		}
 
 		// The game is paused in this case, so resume it
 		else {
 			this.snakeGame.resume();
+			this.changeGameState('');
 		}
 	}
 
@@ -63,5 +65,14 @@ export default class KeyboardHandler {
 	private handleRKey(): void {
 		this.snakeGame.restart();
 		this.gameHasStarted = false;
+	}
+
+	/**
+	 * Changes the game state to indicate whether it's running or paused.
+	 * @param state Next game state.
+	 */
+	private changeGameState(state: string): void {
+		const gameStateDiv = document.querySelector('.game-state') as HTMLDivElement;
+		gameStateDiv.innerHTML = state;
 	}
 }

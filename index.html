@@ -11,20 +11,22 @@
 
 <body>
 
-	<div class="game-wrapper">
+	<div>
 		<canvas id="snakeBoard" width="300" height="300"></canvas>
 	</div>
 
-	<div class="options-wrapper">
-		<!-- each option belongs to an input-group container -->
+	<div>
+		<div class="game-state">
 
+		</div>
 		<div class="input-group">
-			<input id='dark_mode' name='dark_mode' type="checkbox" class="toggle">
+			<input id="dark_mode" name="dark_mode" type="checkbox" class="toggle">
 			<label for="dark_mode">Dark Mode</label>
 		</div>
 
-		<p>press space to start the game, ESC to pause it</p>
+		<em>Press space to start/pause the game</em>
 	</div>
+
 	<script src="/dist/js/index.js" type="module"></script>
 </body>
 
