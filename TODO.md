@@ -1,7 +1,7 @@
 ## Core
 
 - [ ] Add the ability to change the game's speed through a slider.
-
+- [ ] Implement touch support.
 
 ## Enhancements
 
@@ -10,6 +10,8 @@
 - [x] Use SCSS instead of css.
 - [ ] Add sound effects for when the snake eats a piece of food
 - [ ] Add linear-gradient css animations.
+- [ ] Add score.
+- [ ] Add game state indicator (paused, running).
 
 ## Bugs
 
