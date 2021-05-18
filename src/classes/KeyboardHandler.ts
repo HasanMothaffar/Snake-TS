@@ -22,11 +22,11 @@ export default class KeyboardHandler {
 		const pressedKeyCode: string = event.code;
 
 		if (pressedKeyCode === 'Space') {
-			this.handleSpacebar(pressedKeyCode);
+			this.handleSpacebar();
 		}
 
 		else if (pressedKeyCode === 'KeyR') {
-			this.handleRKey(pressedKeyCode);
+			this.handleRKey();
 		}
 
 		else {
@@ -38,7 +38,7 @@ export default class KeyboardHandler {
 	 * Starts/Pauses/Resumes the game.
 	 * @param pressedKeyCode Code for the pressed key (space).
 	 */
-	private handleSpacebar(pressedKeyCode: string): void {
+	private handleSpacebar(): void {
 		// Start the game if it hasn't been started yet
 		if (this.gameHasStarted === false) {
 			this.snakeGame.start();
@@ -60,7 +60,7 @@ export default class KeyboardHandler {
 	 * Restarts the game.
 	 * @param pressedKeyCode Code for the pressed key (R).
 	 */
-	private handleRKey(pressedKeyCode: string): void {
+	private handleRKey(): void {
 		this.snakeGame.restart();
 		this.gameHasStarted = false;
 	}
