@@ -1,18 +1,43 @@
-import { Drawable } from '../models/Drawable.js';
-import { Tile } from '../models/Snake.js';
+import { Tile, Drawable } from "../models/index.js";
 import Food from './Food.js';
 
 export default class Snake implements Drawable {
-	initialXPos: number = 100;
-	initialYPos: number = 100;
+	/**
+	 * The initial X coordinate for the first tile of the snake.
+	 */
+	private initialXPos: number = 100;
 
-	numOfStartingBlocks: number = 4;
+	/**
+	 * The initial Y coordinate for the first tile of the snake.
+	 */
+	private initialYPos: number = 100;
 
+	/**
+	 * The number of starting tiles in the snake's array.
+	 */
+	private numOfStartingBlocks: number = 4;
+
+	/**
+	 * Indicates whether the snake is going up or down.
+	 */
 	private verticalSpeed: number = 0;
+
+	/**
+	 * Indicates whether the snake is going left or right.
+	 */
 	private horizontalSpeed: number = (-1) * this.tileSize;
 
-	tiles: Tile[] = [];
+	/**
+	 * The snake's tiles' array.
+	 */
+	private _tiles: Tile[] = [];
 	
+	/**
+	 * Initializes a new snake and adjusts its coordinates.
+	 * @param tileSize The snake's tile size in pixels.
+	 * @param tileColor The color of normal tiles.
+	 * @param headColor The color of the first tile (the head).
+	 */
 	constructor(
 		public readonly tileSize: number,
 		private tileColor: string,
@@ -20,7 +45,16 @@ export default class Snake implements Drawable {
 	) {
 		this.resetCoordinates();
 	}
+	/**
+	 * Returns the snake's tiles' array.
+	 */
+	get tiles(): Tile[] {
+		return this._tiles;
+	}
 
+	/**
+	 * Returns the snake's head tile.
+	 */
 	get snakeHead(): Tile {
 		return this.tiles[0];
 	}
@@ -43,15 +77,19 @@ export default class Snake implements Drawable {
 	}
 
 	public move(food: Food) {
-		const head: Tile = {
+		const newHead: Tile = {
 			x: this.tiles[0].x + this.horizontalSpeed,
 			y: this.tiles[0].y + this.verticalSpeed
 		}
 
-		this.tiles.unshift(head);
-		if (head.x === food.xCoordinate && head.y === food.yCoordinate) {
+		this.tiles.unshift(newHead);
+
+		// Generate a new piece of food if the snake's head collides with it (i.e. the snake eats the food)
+		if (newHead.x === food.xCoordinate && newHead.y === food.yCoordinate) {
 			food.generateCoordinates(this.tiles);
 		}
+
+		// The snake moves normally in this case
 		else {
 			this.tiles.pop();
 		}
@@ -64,29 +102,31 @@ export default class Snake implements Drawable {
 
 	public resetCoordinates() {
 		this.resetSpeeds();
-		this.tiles = [];
+		this._tiles = [];
+
+		let firstXPos = this.initialXPos;
+		let firstYPos = this.initialYPos;
 		
 		for (let i = 0; i < this.numOfStartingBlocks; i++) {
 			this.tiles.push({
-				x: this.initialXPos,
-				y: this.initialYPos
+				x: firstXPos,
+				y: firstYPos
 			});
 
-			this.initialXPos += this.tileSize;
+			firstXPos += this.tileSize;
 		}
 	}
 
 	/**
 	 * Changes the snake's direction. note that the horizontal and vertical speeds in this class represent directions
 	 * with negative values indicating left and downwards, and positive ones indicating right and upwards.
-	 * @param event 
+	 * @param event The keyboard's keydown event
 	 */
 	public changeDirection(event: KeyboardEvent) {
-		let direction = '';
 		const pressedKeyCode = event.code;
 
 		// if (this._changingDirection) return; //used to prevent the snake from going into the reverse direction. for example, going up and then down
-		// // the snake would have to wait for this function to return and for the Game loop to run again to be able to change direction
+		// the snake would have to wait for this function to return and for the Game loop to run again to be able to change direction
 		// this._changingDirection = true;
 
 		const goingUp = this.verticalSpeed === (-1) * this.tileSize;
@@ -97,29 +137,21 @@ export default class Snake implements Drawable {
 		if (pressedKeyCode === 'ArrowLeft' && !goingRight) {
 			this.horizontalSpeed = (-1) * this.tileSize;
 			this.verticalSpeed = 0;
-			direction = 'left';
 		}
 
 		else if (pressedKeyCode === 'ArrowRight' && !goingLeft) {
 			this.horizontalSpeed = this.tileSize;
 			this.verticalSpeed = 0;
-			direction = 'right';
 		}
 
 		else if (pressedKeyCode === 'ArrowUp' && !goingDown) {
 			this.horizontalSpeed = 0;
 			this.verticalSpeed = (-1) * this.tileSize;
-			direction = 'down'
 		}
 
 		else if (pressedKeyCode === 'ArrowDown' && !goingUp) {
 			this.horizontalSpeed = 0;
 			this.verticalSpeed = this.tileSize;
-			direction = 'up'
 		}
-
-		console.log(`Changing direction to ${direction}`);
 	}
 }
-
-// TODO: add the ability to change the numOfStartingBlocks and initialX and Y values.
