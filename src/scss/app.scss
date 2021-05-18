@@ -1,4 +1,4 @@
-@import "./variables.css";
+@use "./variables.scss";
 
 html {
 	height: 100%;
@@ -106,5 +106,3 @@ input[type="checkbox"] {
 	background: linear-gradient(180deg, #2D2F39 0%, #1F2027 100%);
 
 }
-
-/* the worst thing about making websites is trying to find matching colors. rip ui/ux */
