@@ -39,6 +39,15 @@ export default class KeyboardHandler {
 	 * @param pressedKeyCode Code for the pressed key (space).
 	 */
 	private handleSpacebar(): void {
+		
+		/* 
+			I want to make toggling the dark mode switch possible through the spacebar key,
+			but I don't want the game to start/be paused when users switch this button using the spacebar. They 
+			would have to click something else on the screen to be able to start/pause the game.
+		*/
+		
+		if (isDarkModeInputFocused()) return;
+
 		// Start the game if it hasn't been started yet
 		if (this.gameHasStarted === false) {
 			this.snakeGame.start();
@@ -75,4 +84,12 @@ export default class KeyboardHandler {
 		const gameStateDiv = document.querySelector('.game-state') as HTMLDivElement;
 		gameStateDiv.innerHTML = state;
 	}
+}
+
+/**
+ * Returns whether the dark mode switch button is focused or not.
+ */
+function isDarkModeInputFocused() {
+	const darkModeInput = document.getElementById('dark_mode_input')!;
+	return darkModeInput === document.activeElement;
 }
