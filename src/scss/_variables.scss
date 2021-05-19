@@ -1,7 +1,9 @@
 :root {
 	--text-color: #000000;
+	--cavnas-border-color: silver;
 }
 
 :root.dark {
 	--text-color: white;
+	--cavnas-border-color: white;
 }

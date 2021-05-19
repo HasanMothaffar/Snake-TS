@@ -28,6 +28,9 @@ body {
 canvas {
 	background: white;
 	border-radius: 10px;
+	border: 1px solid var(--cavnas-border-color);
+
+	transition: border-color 0.2s ease-in;
 }
 
 input[type="checkbox"] {

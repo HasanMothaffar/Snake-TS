@@ -23,7 +23,6 @@ export default class Canvas {
 	 * @param width Width of the canvas.
 	 * @param height Height of the canvas.
 	 * @param backgroundColor Background color of the canvas
-	 * @param borderColor Border color of the canvas
 	 */
 	constructor(	
 		id: string = 'canvas',
@@ -32,27 +31,28 @@ export default class Canvas {
 		public readonly height: number = 300,
 		
 		private backgroundColor: string = '#be8984',
-		private borderColor: string = 'silver'
 	) {
 
 		// Initialize the canvas' 2D context
 		this.canvas = document.getElementById(id) as HTMLCanvasElement;
 		this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
 
-		this.adjustDimensions();
+		this.adjustDimensions(this.width, this.height);
 	}
 
 	/**
 	 * Sets the correct width and height values for the canvas.
+	 * @param width 
+	 * @param height 
 	 */
-	private adjustDimensions(): void {
+	public adjustDimensions(width: number, height: number): void {
 		// These are html attributes, which are required for proper rendering of the canvas element.
-		this.canvas.setAttribute('width', this.width.toString());
-		this.canvas.setAttribute('height', this.height.toString());
+		this.canvas.setAttribute('width', width.toString());
+		this.canvas.setAttribute('height', height.toString());
 
 		// These are the css properties for the real width and height properties.
-		this.canvas.style.width = this.width + 'px';
-		this.canvas.style.height = this.height + 'px';
+		this.canvas.style.width = width + 'px';
+		this.canvas.style.height = height + 'px';
 	}
 
 	/**
@@ -60,10 +60,7 @@ export default class Canvas {
 	 */
 	public clear(): void {
 		this.ctx.fillStyle = this.backgroundColor;
-		this.ctx.strokeStyle = this.borderColor;
-
 		this.ctx.fillRect(0, 0, this.width, this.height);
-		this.ctx.strokeRect(0, 0, this.width, this.height);
 	}
 
 	/**
@@ -78,13 +75,11 @@ export default class Canvas {
 	
 	private setWhiteMode(): void {
 		this.backgroundColor = '#846A6A';
-		this.borderColor = 'silver';
 		this.colorTheme = 'white';
 	}
 
 	private setDarkMode(): void {
 		this.backgroundColor = 'black';
-		this.borderColor = 'yellow';
 		this.colorTheme = 'dark';
 	}
 
