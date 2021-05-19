@@ -31,11 +31,11 @@
 
 		transition: opacity 0.5s linear;
 	}
+}
 
-	&.dark {
-		&::before {
-			opacity: 1;
-		}
+.dark {
+	.gradient::before {
+		opacity: 1;
 	}
 }
 
