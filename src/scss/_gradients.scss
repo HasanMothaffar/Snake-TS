@@ -1,0 +1,55 @@
+// Check out this article to know more about transitioning gradients.
+// https://keithjgrant.com/posts/2017/07/transitioning-gradients/
+
+.gradient {
+	background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+	background-size: 400% 400%;
+
+	position: relative;
+	z-index: 1;
+
+    -webkit-animation: GradientRotation 20s ease infinite;
+    -moz-animation: GradientRotation 20s ease infinite;
+    animation: GradientRotation 20s ease infinite;
+
+	&::before {
+		content: '';
+
+		background-color: #000000;
+		background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
+
+		background-size: 400% 400%;
+
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		z-index: -1;
+		opacity: 0;
+
+		transition: opacity 0.5s linear;
+	}
+
+	&.dark {
+		&::before {
+			opacity: 1;
+		}
+	}
+}
+
+@keyframes GradientRotation {
+    0% {
+		background-position: 0% 50%;
+	}
+
+    50% {
+		background-position: 100% 50%;
+	}
+
+    100% {
+		background-position: 0% 50%;
+	}
+
+}
