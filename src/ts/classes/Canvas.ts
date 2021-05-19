@@ -18,22 +18,21 @@ export default class Canvas {
 	private colorTheme: ColorTheme = 'white';
 
 	/**
-	 * 
+	 * Initializes the canvas' 2D context and DOM reference.
 	 * @param id ID of the canvas' DOM element.
 	 * @param width Width of the canvas.
 	 * @param height Height of the canvas.
 	 * @param backgroundColor Background color of the canvas
 	 */
 	constructor(	
-		id: string = 'canvas',
+		id: string = 'snakeBoard',
 
 		public readonly width: number = 300,
 		public readonly height: number = 300,
 		
 		private backgroundColor: string = '#be8984',
 	) {
-
-		// Initialize the canvas' 2D context
+		
 		this.canvas = document.getElementById(id) as HTMLCanvasElement;
 		this.ctx = this.canvas.getContext('2d') as CanvasRenderingContext2D;
 
@@ -74,7 +73,7 @@ export default class Canvas {
 	/* -- COLOR THEME LOGIC -- */
 	
 	private setWhiteMode(): void {
-		this.backgroundColor = '#846A6A';
+		this.backgroundColor = '#be8984';
 		this.colorTheme = 'white';
 	}
 
