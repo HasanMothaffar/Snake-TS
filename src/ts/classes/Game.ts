@@ -140,4 +140,15 @@ export default class Game {
 	public isGameRunning(): boolean {
 		return this.running;
 	}
+
+	/**
+	 * Updates the canvas' background and redraws old elements on it.
+	 * 
+	 * Used when switching between dark and white modes
+	 */
+	public updateCanvas() {
+		this.canvas.clear();
+		this.canvas.drawElement(this.snake);
+		this.canvas.drawElement(this.food);
+	}
 }

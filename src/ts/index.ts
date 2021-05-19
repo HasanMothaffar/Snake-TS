@@ -22,4 +22,17 @@ const snakeGame = new SnakeGame(snake, canvas);
 
 const keyboardHandler = new KeyboardHandler(snakeGame);
 
-document.addEventListener('keydown', keyboardHandler);
+function registerEventHandlers() {
+	const darkModeInput = document.getElementById('dark_mode_input')!;
+
+	document.addEventListener('keydown', keyboardHandler);
+	darkModeInput.addEventListener('change', toggleDarkMode);
+}
+
+function toggleDarkMode() {
+	document.documentElement.classList.toggle('dark');
+	canvas.switchColorTheme();
+	snakeGame.updateCanvas();
+}
+
+registerEventHandlers();
