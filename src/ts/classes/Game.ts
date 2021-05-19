@@ -63,6 +63,14 @@ export default class Game {
 	}
 
 	/**
+	 * Resets the player's score to 0.
+	 */
+	private resetScore() {
+		const score = document.getElementById('score')!;
+		score.innerHTML = (0).toString();
+	}
+
+	/**
 	 * Renders a static snake on the canvas.
 	 */
 	private initialRender(): void {
@@ -123,6 +131,7 @@ export default class Game {
 	 */
 	public restart(): void {
 		this.snake.resetCoordinates();
+		this.resetScore();
 
 		/* 
 			It's necessary that the food coordinates be generated 

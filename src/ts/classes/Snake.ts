@@ -60,6 +60,25 @@ export default class Snake implements Drawable {
 	}
 
 	/**
+	 * Returns whether the snake has eaten a piece of food or not.
+	 * @param newHead New head tile after the snake moves.
+	 * @param food The current piece of food on the canvas.
+	 */
+	private hasSnakeEatenFood(newHead: Tile, food: Food): boolean {
+		return newHead.x === food.xCoordinate && newHead.y === food.yCoordinate;
+	}
+
+	/**
+	 * Dispatches a 'food-eaten' event in order for the score to increase.
+	 * 
+	 * The listener for this event can be found in the index.ts file.
+	 */
+	private dispatchFoodEatenEvent(): void {
+		const foodEatenEvent = new Event('food-eaten');
+		document.dispatchEvent(foodEatenEvent);
+	}
+
+	/**
 	 * Draws an individual snake tile on the canvas.
 	 * @param tile The snake tile to be drawn.
 	 * @param tileIndex The index of the tile to be drawn (useful to know if it's the head tile).
@@ -96,9 +115,10 @@ export default class Snake implements Drawable {
 
 		this.tiles.unshift(newHead);
 
-		// Generate a new piece of food if the snake's head collides with it (i.e. the snake eats the food)
-		if (newHead.x === food.xCoordinate && newHead.y === food.yCoordinate) {
+		// Generate a new piece of food and increase score if the snake has eaten the food
+		if (this.hasSnakeEatenFood(newHead, food)) {
 			food.generateCoordinates(this.tiles);
+			this.dispatchFoodEatenEvent();
 		}
 
 		// The snake moves normally in this case

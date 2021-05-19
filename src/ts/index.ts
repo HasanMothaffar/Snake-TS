@@ -26,6 +26,7 @@ function registerEventHandlers() {
 	const darkModeInput = document.getElementById('dark_mode_input')!;
 
 	document.addEventListener('keydown', keyboardHandler);
+	document.addEventListener('food-eaten', updateScore);
 	darkModeInput.addEventListener('change', toggleDarkMode);
 }
 
@@ -33,6 +34,11 @@ function toggleDarkMode() {
 	document.documentElement.classList.toggle('dark');
 	canvas.switchColorTheme();
 	snakeGame.updateCanvas();
+}
+
+function updateScore() {
+	const score = document.getElementById('score')!;
+	score.innerHTML = (parseInt(score.innerHTML) + 1).toString();
 }
 
 registerEventHandlers();
