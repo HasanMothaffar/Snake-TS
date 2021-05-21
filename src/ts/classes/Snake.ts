@@ -156,12 +156,11 @@ export default class Snake implements Drawable {
 	}
 
 	/**
-	 * Changes the snake's direction. note that the horizontal and vertical speeds in this class represent directions
+	 * Changes the snake's direction. Note that the horizontal and vertical speeds in this class represent directions
 	 * with negative values indicating left and downwards, and positive ones indicating right and upwards.
-	 * @param event The keyboard's keydown event
+	 * @param pressedKeyCode The code of the pressed key.
 	 */
-	public changeDirection(event: KeyboardEvent) {
-		const pressedKeyCode = event.code;
+	public changeDirection(pressedKeyCode: string) {
 
 		// if (this._changingDirection) return; //used to prevent the snake from going into the reverse direction. for example, going up and then down
 		// the snake would have to wait for this function to return and for the Game loop to run again to be able to change direction
