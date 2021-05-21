@@ -1,4 +1,6 @@
 @use "./gradients";
+@use "./mobile_controls";
+@use "./score";
 @use "./switch_button";
 @use "./variables";
 
@@ -41,8 +43,8 @@ input[type="checkbox"] {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 350px;
-	margin-bottom: 20px;
+	width: 21rem;
+	margin-bottom: 1.5rem;
 	position: relative;
 }
 
@@ -53,4 +55,14 @@ input[type="checkbox"] {
 
 .game-state {
 	height: 30px;
+}
+
+#mobile-controls {
+	display: none;
+}
+
+@media screen and (max-width: 567px) {
+	html, body {
+		font-size: 14px;
+	}
 }
