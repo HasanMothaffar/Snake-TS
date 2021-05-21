@@ -1,0 +1,28 @@
+.score {
+	height: 30px;
+	font-size: 1.2rem;
+	margin-top: 20px;
+	position: relative;
+}
+
+.score-animation {
+	opacity: 0;
+	position: absolute;
+	left: 27%;
+
+	&.animated {
+		animation: addScore 0.5s ease-in;
+		
+	}
+}
+
+@keyframes addScore {
+	50% {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(-2rem);
+	}
+}
