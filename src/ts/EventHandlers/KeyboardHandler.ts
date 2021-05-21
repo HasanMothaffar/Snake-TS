@@ -1,4 +1,4 @@
-import Game from "../Game.js";
+import Game from "../classes/Game.js";
 
 export default class KeyboardHandler {
 
@@ -30,7 +30,7 @@ export default class KeyboardHandler {
 		}
 
 		else {
-			this.snakeGame.snake.changeDirection(event);
+			this.snakeGame.snake.changeDirection(pressedKeyCode);
 		}
 	}
 	
