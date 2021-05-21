@@ -1,6 +1,7 @@
 import Game from "../classes/Game.js";
 import KeyboardHandler from "./KeyboardHandler.js";
 import TouchHanlder from "./TouchHandler.js";
+import { updateScore, toggleDarkMode } from "./core/index.js";
 
 /**
  * Registers touch, keyboard, theme, and score event listeners for the `snakeGame` parameter.
@@ -18,18 +19,4 @@ export function registerEventHandlers(snakeGame: Game): void {
 
 	mobileControlsDiv.addEventListener('click', touchHandler);
 	darkModeInput.addEventListener('change', () => toggleDarkMode(snakeGame));
-}
-
-
-function toggleDarkMode(snakeGame: Game) {
-	document.documentElement.classList.toggle('dark');
-	snakeGame.switchColorTheme();
-}
-
-/**
- * Increases the game's score by 1.
- */
-function updateScore() {
-	const score = document.getElementById('score')!;
-	score.innerHTML = (parseInt(score.innerHTML) + 1).toString();
 }
