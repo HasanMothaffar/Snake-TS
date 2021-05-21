@@ -151,11 +151,12 @@ export default class Game {
 	}
 
 	/**
-	 * Updates the canvas' background and redraws old elements on it.
-	 * 
-	 * Used when switching between dark and white modes
+	 * Switches color themes between dark and white modes.
 	 */
-	public updateCanvas() {
+	public switchColorTheme() {
+		this.canvas.switchColorTheme();
+
+		// Updates the canvas with new colors and redraws all elements on it
 		this.canvas.clear();
 		this.canvas.drawElement(this.snake);
 		this.canvas.drawElement(this.food);

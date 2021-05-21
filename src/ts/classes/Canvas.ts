@@ -83,7 +83,7 @@ export default class Canvas {
 	}
 
 	/**
-	 * Switches color themes between dark and white modes.
+	 * Updates the colors of the canvas to match the new theme
 	 */
 	public switchColorTheme(): void {
 		if (this.colorTheme == 'white') {
