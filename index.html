@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Primary Meta Tags -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="A typescript implementation for the famous snake game.">
+	<meta name="author" content="Hasan Mothaffar">
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://github.com/HasanMothaffar/Snake-TS">
+	<meta property="og:title" content="Snake Game | TypeScript Version">
+	<meta property="og:description" content="A typescript implementation for the famous snake game.">
+	<!-- <meta property="og:image" content="https://github.com/HasanMothaffar/Snake-TSassets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
+	
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://github.com/HasanMothaffar/Snake-TS">
+	<meta property="twitter:title" content="Snake Game | TypeScript Version">
+	<meta property="twitter:description" content="A typescript implementation for the famous snake game.">
+	<!-- <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
 
-	<title>Snake Game | TypeScript version</title>
+	<title>Snake Game | TypeScript Version</title>
 	<link rel="stylesheet" href="./dist/css/app.css">
 </head>
 
@@ -17,18 +33,43 @@
 
 	<div>
 		<div class="game-state">
-
+			<!-- Paused or running -->
 		</div>
 
-		<div id="score">
-			0
-		</div>
 		<div class="input-group">
 			<input id="dark_mode_input" name="dark_mode_input" type="checkbox" class="toggle">
 			<label for="dark_mode_input">Dark Mode</label>
 		</div>
 
 		<em>Press space to start/pause the game</em>
+
+		<div class="score">
+			<span>
+				Score:
+			</span>
+		
+			<span id="score">
+				0
+			</span>
+		</div>
+
+		<div id="mobile-controls">
+			<button data-code="ArrowLeft">
+				left
+			</button>
+
+			<button data-code="ArrowUp">
+				up
+			</button>
+
+			<button data-code="ArrowDown">
+				down
+			</button>
+
+			<button data-code="ArrowRight">
+				right
+			</button>
+		</div>
 	</div>
 
 	<script src="/dist/js/index.js" type="module"></script>
