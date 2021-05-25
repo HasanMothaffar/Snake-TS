@@ -29,6 +29,10 @@ export default class KeyboardHandler {
 			this.handleRKey();
 		}
 
+		else if (pressedKeyCode === 'KeyG') {
+			this.snakeGame.z();
+		}
+
 		else {
 			this.snakeGame.snake.changeDirection(pressedKeyCode);
 		}
