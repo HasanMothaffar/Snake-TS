@@ -5,12 +5,12 @@ import { registerEventHandlers } from "./EventHandlers/index.js";
 
 
 // Reduce the dimensions of the canvas on smaller screens. This only happens when the game is loaded.
-const mediaQuery = matchMedia('(max-width: 576px)'); 
+const mediaQuery = matchMedia('(max-width: 576px)');
 let canvasWidth: number;
 let canvasHeight: number;
 
 if (mediaQuery.matches) {
-	canvasWidth = canvasHeight = 300;
+	canvasWidth = canvasHeight = window.innerWidth - 40;
 }
 
 else {
