@@ -16,7 +16,7 @@ export default class Game {
 	/**
 	 * The game loop's speed, in milliseconds.
 	 */
-	private gameSpeed: number = 100;
+	private gameSpeed: number = 300;
 
 	/**
 	 * A flag that indicates whether the game is running or not.
