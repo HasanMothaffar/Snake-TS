@@ -1,6 +1,6 @@
 ## Core
 
-- [ ] Add the ability to change the game's difficulty using a select tag.
+- [x] Add the ability to change the game's difficulty using a select tag.
 - [ ] Implement touch support.
 
 ## Enhancements
@@ -14,6 +14,13 @@
 - [ ] Randomize the initialXPos and initialYPos variables in the snake's class.
 - [x] Use SCSS instead of css.
 - [ ] High score using localStorage.
+- [ ] Hide options and show them in a popup when the user click the options icon.
+
+## Code enhancements 
+
+- [ ] Implement a queue instead of an arary for the snake's tiles.
+- [ ] Implement object destructuring for the classes' constructors (this might take 1-2 hours).
+
 ## Documentation
 
 - [ ] Document the getRandomCoordinate function in the Food.ts class.
