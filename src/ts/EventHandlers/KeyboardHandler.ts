@@ -12,7 +12,9 @@ export default class KeyboardHandler {
 	 * Initializes keyboard event listeners for the snake game.
 	 * @param snakeGame Snake game instance to attach the event listeners to.
 	 */
-	constructor(private snakeGame: Game) { }
+	constructor(private snakeGame: Game) {
+		document.addEventListener('keydown', this);
+	 }
 
 	/**
 	 * Handles game states by listening to the keydown event.
