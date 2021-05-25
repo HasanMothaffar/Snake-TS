@@ -32,13 +32,53 @@
 	</div>
 
 	<div>
+
+		<div>
+			<button>
+				Start
+			</button>
+			
+			<button>
+				Pause
+			</button>
+
+			<button>
+				Restart
+			</button>
+		</div>
 		<div class="game-state">
 			<!-- Paused or running -->
 		</div>
 
-		<div class="input-group">
-			<input id="dark_mode_input" name="dark_mode_input" type="checkbox" class="toggle">
-			<label for="dark_mode_input">Dark Mode</label>
+		<div class="options">
+			<div class="input-group">
+				<input id="dark_mode_input" name="dark_mode_input" type="checkbox" class="toggle">
+				<label for="dark_mode_input">Dark Mode</label>
+			</div>
+			
+			<div class="input-group">
+				<select name="game-difficulty" id="game-difficulty">
+					<option value="300">
+						Easy
+					</option>
+			
+					<option value="200">
+						Medium
+					</option>
+			
+					<option value="100">
+						Hard
+					</option>
+			
+					<option value="50">
+						HARDCORE
+					</option>
+				</select>
+			
+				<label for="game-difficulty">
+					Difficulty
+				</label>
+			</div>
 		</div>
 
 		<em>Press space to start/pause the game</em>
@@ -55,30 +95,6 @@
 			<span class="score-animation">
 				+1
 			</span>
-		</div>
-
-		<div>
-			<label for="game-difficulty">
-				Difficulty: 
-			</label>
-			<select name="game-difficulty" id="game-difficulty">
-				<option value="300">
-					Easy
-				</option>
-
-				<option value="200">
-					Medium
-				</option>
-
-				<option value="100">
-					Hard
-				</option>
-
-				<option value="50">
-					HARDCORE
-				</option>
-
-			</select>
 		</div>
 
 		<div id="mobile-controls">
