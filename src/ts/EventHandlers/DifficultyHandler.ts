@@ -13,6 +13,11 @@ export default class DifficultyHanlder {
 	}
 
 	handleEvent(event: Event) {
-		console.log(event);
+		const selectedIndex = this.difficultyController.selectedIndex;
+		let newDifficulty = this.difficultyController.options[selectedIndex].value;
+
+		this.snakeGame.changeDifficulty(parseInt(newDifficulty));
+		
+		this.difficultyController.blur();
 	}
 }

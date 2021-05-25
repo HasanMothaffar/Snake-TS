@@ -16,7 +16,7 @@ export default class Game {
 	/**
 	 * The game loop's speed, in milliseconds.
 	 */
-	private gameSpeed: number = 300;
+	private gameSpeed: number = 100;
 
 	/**
 	 * A flag that indicates whether the game is running or not.
@@ -160,5 +160,23 @@ export default class Game {
 		this.canvas.clear();
 		this.canvas.drawElement(this.snake);
 		this.canvas.drawElement(this.food);
+	}
+
+	/**
+	 * Changes the game's difficulty by increasing the main loop's speed.
+	 * @param difficulty The new difficulty (new loop's speed).
+	 */
+	public changeDifficulty(difficulty: number) {
+		this.gameSpeed = difficulty;
+		
+		/* 
+			Without checking for the running property, the game would
+			immediately run after changing the difficulty, even if it were paused
+			in the first place.		
+		*/ 
+		if (this.running) {
+			clearInterval(this.gameInterval);
+			this.gameInterval = setInterval(this.renderGame.bind(this), this.gameSpeed);
+		}
 	}
 }
