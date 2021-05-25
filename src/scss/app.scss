@@ -4,6 +4,18 @@
 @use "./switch_button";
 @use "./variables";
 
+* {
+	box-sizing: border-box;
+
+	&::after {
+		box-sizing: border-box;
+	}
+
+	&::before {
+		box-sizing: border-box;
+	}
+}
+
 html {
 	height: 100%;
 	font-size: 16px;
@@ -43,22 +55,31 @@ input[type="checkbox"] {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	
 	width: 21rem;
 	margin-bottom: 1.5rem;
-	position: relative;
-}
 
-.input-group label {
-	font-size: 1.5rem;
-	font-weight: bold;
+	position: relative;
+
+	label {
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	select {
+
+		/*
+			For some reason, select tags do not inherit the font-size
+			and font-family properties. You have to explicitly specify this.
+		*/
+		
+		font-family: inherit;
+		font-size: inherit;
+	}
 }
 
 .game-state {
 	height: 30px;
-}
-
-#mobile-controls {
-	display: none;
 }
 
 @media screen and (max-width: 567px) {
