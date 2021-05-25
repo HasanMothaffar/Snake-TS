@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc && sass src/scss/app.scss:dist/css/app.css",
 	"watch:ts": "tsc --watch",
-	"watch:scss": "sass src/scss/app.scss:dist/css/app.css -w"
+	"watch:scss": "sass src/scss/app.scss:dist/css/app.css -w --style=compressed"
   },
   "dependencies": {
     "sass": "^1.32.13",
