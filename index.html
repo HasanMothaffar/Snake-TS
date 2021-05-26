@@ -32,8 +32,7 @@
 	</div>
 
 	<div>
-
-		<div>
+		<!-- <div>
 			<button>
 				Start
 			</button>
@@ -45,43 +44,16 @@
 			<button>
 				Restart
 			</button>
-		</div>
+		</div> -->
 		<div class="game-state">
 			<!-- Paused or running -->
 		</div>
 
-		<div class="options">
-			<div class="input-group">
-				<input id="dark_mode_input" name="dark_mode_input" type="checkbox" class="toggle">
-				<label for="dark_mode_input">Dark Mode</label>
-			</div>
-			
-			<div class="input-group">
-				<select name="game-difficulty" id="game-difficulty">
-					<option value="300">
-						Easy
-					</option>
-			
-					<option value="200">
-						Medium
-					</option>
-			
-					<option value="100">
-						Hard
-					</option>
-			
-					<option value="50">
-						HARDCORE
-					</option>
-				</select>
-			
-				<label for="game-difficulty">
-					Difficulty
-				</label>
-			</div>
-		</div>
+		<button class="open-modal">
+			Options
+		</button>
 
-		<em>Press space to start/pause the game</em>
+		<em class="start-label">Press space to start/pause the game</em>
 
 		<div class="score">
 			<span>
@@ -99,20 +71,71 @@
 
 		<div id="mobile-controls">
 			<button class="btn--control" data-code="ArrowLeft">
-				left
+				<svg xmlns="http://www.w3.org/2000/svg" width="26.846" height="26.828" viewBox="0 0 26.846 26.828">
+					<path d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
+						transform="translate(819.847 1166.828) rotate(180)" fill="#a3b5bf" />
+				</svg>
+
 			</button>
 
 			<button class="btn--control" data-code="ArrowUp">
-				up
+				<svg xmlns="http://www.w3.org/2000/svg" width="26.828" height="26.846" viewBox="0 0 26.828 26.846">
+					<path d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
+						transform="translate(-1140 819.847) rotate(-90)" fill="#a3b5bf" />
+				</svg>
+
 			</button>
 
 			<button class="btn--control" data-code="ArrowDown">
-				down
+				<svg xmlns="http://www.w3.org/2000/svg" width="26.828" height="26.846" viewBox="0 0 26.828 26.846">
+					<path d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
+						transform="translate(1166.828 -793.001) rotate(90)" fill="#a3b5bf" />
+				</svg>
+
 			</button>
 
 			<button class="btn--control" data-code="ArrowRight">
-				right
+				<svg xmlns="http://www.w3.org/2000/svg" width="26.846" height="26.828" viewBox="0 0 26.846 26.828">
+					<path d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
+						transform="translate(-793.001 -1140)" fill="#a3b5bf" />
+				</svg>
 			</button>
+		</div>
+	</div>
+
+	<div class="options">
+		
+		<button class="close-modal">
+			Close
+		</button>
+		
+		<div class="input-group">
+			<input id="dark_mode_input" name="dark_mode_input" type="checkbox" class="toggle" autocomplete="off" checked>
+			<label for="dark_mode_input">Dark Mode</label>
+		</div>
+	
+		<div class="input-group">
+			<select name="game-difficulty" id="game-difficulty">
+				<option value="300">
+					Easy
+				</option>
+	
+				<option value="200">
+					Medium
+				</option>
+	
+				<option value="100">
+					Hard
+				</option>
+	
+				<option value="50">
+					HARDCORE
+				</option>
+			</select>
+	
+			<label for="game-difficulty">
+				Difficulty
+			</label>
 		</div>
 	</div>
 
