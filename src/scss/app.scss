@@ -1,7 +1,7 @@
 @use "./gradients";
 @use "./mobile_controls";
+@use "./options";
 @use "./score";
-@use "./switch_button";
 @use "./variables";
 
 * {
@@ -81,7 +81,13 @@ input[type="checkbox"] {
 	height: 30px;
 }
 
-@media screen and (max-width: 567px) {
+@media (max-width: 768px) {
+	.start-label {
+		display: none;
+	}
+}
+
+@media (max-width: 567px) {
 	html, body {
 		font-size: 14px;
 	}
