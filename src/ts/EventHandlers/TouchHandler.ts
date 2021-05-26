@@ -1,6 +1,9 @@
 import Game from "../classes/Game.js";
 
 export default class TouchHandler {
+	/**
+	 * The div that contains control arrows for mobile screens.
+	 */
 	private mobileControlsDiv: HTMLDivElement;
 
 	/**
@@ -13,7 +16,9 @@ export default class TouchHandler {
 	 }
 
 	public handleEvent(event: MouseEvent) {
-		const eventTarget = event.target as HTMLDivElement;
+		// Event target might be an svg element, but I want the button element instead.
+		const eventTarget = (event.target as HTMLDivElement).closest('button')!;
+		
 		if (eventTarget.dataset.code) {
 			this.snakeGame.snake.changeDirection(eventTarget.dataset.code);
 		}
