@@ -34,4 +34,4 @@ npm run build
 
 This will generate the ```dist``` folder, which contains all the required files to run the project in the browser.
 
-**Note:** You can also run ```yarn run watch``` to compile files in watch mode.
+**Note:** You can also run ```yarn run watch:tsc``` or ```yarn run watch:scss``` to compile files in watch mode.
