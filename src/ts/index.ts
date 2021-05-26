@@ -10,7 +10,7 @@ let canvasWidth: number;
 let canvasHeight: number;
 
 if (mediaQuery.matches) {
-	canvasWidth = canvasHeight = window.innerWidth - 40;
+	canvasWidth = canvasHeight = window.innerWidth - 50;
 }
 
 else {

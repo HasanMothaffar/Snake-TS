@@ -1,9 +1,11 @@
 :root {
 	--text-color: #000000;
 	--cavnas-border-color: silver;
+	--arrow-background: white;
 }
 
 :root.dark {
-	--text-color: white;
-	--cavnas-border-color: white;
+	--text-color: silver;
+	--cavnas-border-color: silver;
+	--arrow-background: #454141;
 }
