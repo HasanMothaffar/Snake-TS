@@ -1,4 +1,4 @@
-import { Tile } from "../models/index.js";
+import { Tile } from "../models/index";
 
 export default class Food {
 	/**

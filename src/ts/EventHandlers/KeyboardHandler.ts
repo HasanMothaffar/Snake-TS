@@ -1,4 +1,4 @@
-import Game from "../classes/Game.js";
+import Game from "../classes/Game";
 
 export default class KeyboardHandler {
 

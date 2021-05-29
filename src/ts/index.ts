@@ -1,7 +1,7 @@
-import SnakeGame from "./classes/Game.js";
-import Snake from "./classes/Snake.js";
-import Canvas from "./classes/Canvas.js";
-import { registerEventHandlers } from "./EventHandlers/index.js";
+import SnakeGame from "./classes/Game";
+import Snake from "./classes/Snake";
+import Canvas from "./classes/Canvas";
+import { registerEventHandlers } from "./EventHandlers/index";
 
 
 // Reduce the dimensions of the canvas on smaller screens. This only happens when the game is loaded.

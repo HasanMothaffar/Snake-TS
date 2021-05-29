@@ -1,6 +1,6 @@
-import Snake from "./Snake.js";
-import Canvas from "./Canvas.js";
-import Food from "./Food.js";
+import Snake from "./Snake";
+import Canvas from "./Canvas";
+import Food from "./Food";
 
 export default class Game {
 	/**

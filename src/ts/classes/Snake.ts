@@ -1,5 +1,5 @@
-import { Tile, Drawable } from "../models/index.js";
-import Food from './Food.js';
+import { Tile, Drawable } from "../models/index";
+import Food from './Food';
 
 export default class Snake implements Drawable {
 	/**

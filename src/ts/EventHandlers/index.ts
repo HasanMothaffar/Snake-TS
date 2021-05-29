@@ -1,8 +1,8 @@
-import Game from "../classes/Game.js";
-import KeyboardHandler from "./KeyboardHandler.js";
-import TouchHanlder from "./TouchHandler.js";
-import ScoreHandler from "./ScoreHandler.js";
-import OptionsHandler from "./OptionsHandler.js";
+import Game from "../classes/Game";
+import KeyboardHandler from "./KeyboardHandler";
+import TouchHanlder from "./TouchHandler";
+import ScoreHandler from "./ScoreHandler";
+import OptionsHandler from "./OptionsHandler";
 
 /**
  * Registers touch, keyboard, theme, and score event listeners for the `snakeGame` parameter.

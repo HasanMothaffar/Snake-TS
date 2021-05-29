@@ -1,4 +1,4 @@
-import Game from "../classes/Game.js";
+import Game from "../classes/Game";
 
 export default class TouchHandler {
 	/**
@@ -19,7 +19,7 @@ export default class TouchHandler {
 		// Event target might be an svg element, but I want the button element instead.
 		const eventTarget = (event.target as HTMLDivElement).closest('button')!;
 		
-		if (eventTarget.dataset.code) {
+		if (eventTarget !== null && eventTarget.dataset.code) {
 			this.snakeGame.snake.changeDirection(eventTarget.dataset.code);
 		}
 	}
