@@ -1,15 +1,18 @@
 {
   "name": "t_snake",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "build": "tsc && sass src/scss/app.scss:dist/css/app.css",
-	"watch:ts": "tsc --watch",
-	"watch:scss": "sass src/scss/app.scss:dist/css/app.css -w --style=compressed"
+    "watch:ts": "tsc --watch",
+    "watch:scss": "sass src/scss/app.scss:dist/css/app.css -w --style=compressed"
   },
-  "dependencies": {
-    "sass": "^1.32.13",
+  "devDependencies": {
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+	"sass": "^1.32.13",
+    "ts-loader": "^9.2.2",
     "typescript": "^4.2.4"
   }
 }
