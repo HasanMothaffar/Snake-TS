@@ -1,7 +1,7 @@
 import SnakeGame from "./classes/Game";
 import Snake from "./classes/Snake";
 import Canvas from "./classes/Canvas";
-import { registerEventHandlers } from "./EventHandlers/index";
+import { registerEventHandlers } from "./eventHandlers/index";
 
 
 // Reduce the dimensions of the canvas on smaller screens. This only happens when the game is loaded.
