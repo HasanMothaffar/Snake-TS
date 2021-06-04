@@ -1,0 +1,32 @@
+.options {
+	display: flex;
+	flex-flow: column;
+
+	position: absolute;
+	top: 0;
+
+	background: gray;
+
+	padding: 2rem 3rem;
+
+	border-radius: 15px;
+
+	transform: translateY(-20rem);
+
+	transition: 1s all ease-out;
+
+	&.open {
+		transform: translateY(20rem);
+	}
+
+	.close-modal {
+		margin-left: auto;
+		margin-bottom: 1rem;
+
+		cursor: pointer;
+	}
+}
+
+.open-modal {
+	cursor: pointer;
+}

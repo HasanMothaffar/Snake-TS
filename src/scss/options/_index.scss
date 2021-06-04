@@ -1,16 +1,2 @@
+@use "./modal";
 @use "./switch_button";
-.options {
-	position: absolute;
-	top: 0;
-	background: blue;
-	padding: 20px;
-	border-radius: 15px;
-
-	transform: translateY(-20rem);
-
-	transition: 1s all ease-out;
-
-	&.open {
-		transform: translateY(20rem);
-	}
-}
