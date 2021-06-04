@@ -20,11 +20,14 @@ html {
 	font-size: 16px;
 	font-family: Poppins;
 	color: var(--text-color);
+	overflow-x: hidden;
 }
 
 body {
 	min-height: 100vh;
 	margin: 0;
+
+	overflow-x: hidden;
 
 	display: flex;
 	flex-flow: row wrap;
