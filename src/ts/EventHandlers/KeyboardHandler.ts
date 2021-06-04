@@ -1,7 +1,6 @@
 import Game from "../classes/Game";
 
 export default class KeyboardHandler {
-
 	/**
 	 * A flag that indicates whether the game has already started.
 	 * Useful for handling the pause/resume game states.
@@ -31,13 +30,14 @@ export default class KeyboardHandler {
 			this.handleRKey();
 		}
 
+		// Arrow keys are pressed in this case
 		else {
 			this.snakeGame.snake.changeDirection(pressedKeyCode);
 		}
 	}
 	
 	/**
- * Starts/Pauses/Resumes the game.
+	 * Starts/Pauses/Resumes the game.
 	 * @param pressedKeyCode Code for the pressed key (space).
 	 */
 	private handleSpacebar(): void {

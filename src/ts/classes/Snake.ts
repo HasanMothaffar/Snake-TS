@@ -74,8 +74,7 @@ export default class Snake implements Drawable {
 	 * The listener for this event can be found in the index.ts file.
 	 */
 	private dispatchFoodEatenEvent(): void {
-		const foodEatenEvent = new Event('food-eaten');
-		document.dispatchEvent(foodEatenEvent);
+		document.dispatchEvent(new Event('food-eaten'));
 	}
 
 	/**
@@ -84,7 +83,7 @@ export default class Snake implements Drawable {
 	 * @param tileIndex The index of the tile to be drawn (useful to know if it's the head tile).
 	 * @param parentCanvasContext The 2D context of the canvas upon which the tile will be drawn.
 	 */
-	private drawSnakeTile(tile: Tile, tileIndex: number, parentCanvasContext: CanvasRenderingContext2D) {
+	private drawSnakeTile(tile: Tile, tileIndex: number, parentCanvasContext: CanvasRenderingContext2D): void {
 		parentCanvasContext.fillStyle = tileIndex === 0 ? this.headColor : this.tileColor;
 		parentCanvasContext.strokeStyle = 'darkblue';
 		
@@ -97,7 +96,7 @@ export default class Snake implements Drawable {
 	 * Draws the whole snake on the canvas.
 	 * @param context The 2D context of the canvas upon which the tile will be drawn.
 	 */
-	public drawOnCanvas(context: CanvasRenderingContext2D) {
+	public drawOnCanvas(context: CanvasRenderingContext2D): void {
 		this.tiles.forEach((tile, tileIndex) => {
 			this.drawSnakeTile(tile, tileIndex, context);
 		});
@@ -107,7 +106,7 @@ export default class Snake implements Drawable {
 	 * Moves the tiles of the snake.
 	 * @param food The piece of food that the snake will eat.
 	 */
-	public move(food: Food) {
+	public move(food: Food): void {
 		const newHead: Tile = {
 			x: this.tiles[0].x + this.horizontalSpeed,
 			y: this.tiles[0].y + this.verticalSpeed
@@ -130,7 +129,7 @@ export default class Snake implements Drawable {
 	/**
 	 * Resets the direction of the snake.
 	 */
-	private resetDirection() {
+	private resetDirection(): void {
 		this.horizontalSpeed = (-1) * this.tileSize;
 		this.verticalSpeed = 0;
 	}
@@ -138,7 +137,7 @@ export default class Snake implements Drawable {
 	/**
 	 * Resets the current tiles array and creates a new one with new coordinates.
 	 */
-	public resetCoordinates() {
+	public resetCoordinates(): void {
 		this.resetDirection();
 		this._tiles = [];
 
@@ -160,7 +159,7 @@ export default class Snake implements Drawable {
 	 * with negative values indicating left and downwards, and positive ones indicating right and upwards.
 	 * @param pressedKeyCode The code of the pressed key.
 	 */
-	public changeDirection(pressedKeyCode: string) {
+	public changeDirection(pressedKeyCode: string): void {
 
 		// if (this._changingDirection) return; //used to prevent the snake from going into the reverse direction. for example, going up and then down
 		// the snake would have to wait for this function to return and for the Game loop to run again to be able to change direction

@@ -16,7 +16,7 @@ export default class TouchHandler {
 	 }
 
 	public handleEvent(event: MouseEvent) {
-		// Event target might be an svg element, but I want the button element instead.
+		// Event target might be an svg element, but I want the parent button element instead.
 		const eventTarget = (event.target as HTMLDivElement).closest('button')!;
 		
 		if (eventTarget !== null && eventTarget.dataset.code) {

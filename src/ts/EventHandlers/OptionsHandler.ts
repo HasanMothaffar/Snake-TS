@@ -46,8 +46,8 @@ export default class DifficultyHanlder {
 	 * Opens the options modal, which causes the game to pause.
 	 */
 	private openOptionsModal(): void {
-		this.snakeGame.pause();
 		this.optionsModal.classList.add('open');
+		this.snakeGame.pause();
 	}
 
 	/**
@@ -61,23 +61,30 @@ export default class DifficultyHanlder {
 	 * Changes the game's theme.
 	 */
 	private changeTheme(): void {
-		document.documentElement.classList.toggle('dark');
 		this.snakeGame.switchColorTheme();
 	}
 
 	/**
-	 * Calls the snake's game instance's changeDifficulty method.
+	 * Calls the snake game's changeDifficulty method.
 	 * @param event The difficulty controller's change event.
 	 */
 	private changeDifficulty(event: Event): void {
+		const newDifficulty = this.getNewDifficulty();
 
-		// Fetch the new difficulty.
-		const selectedIndex = this.difficultyController.selectedIndex;
-		let newDifficulty = this.difficultyController.options[selectedIndex].value;
-
-		this.snakeGame.changeDifficulty(parseInt(newDifficulty));
-		
+		this.snakeGame.changeDifficulty(newDifficulty);
 		this.difficultyController.blur();
+	}
+
+	/**
+	 * Returns the difficulty that the user specifies.
+	 * 
+	 * Note that difficulty is a number that indicates the game loop's speed in milliseconds.
+	 */
+	private getNewDifficulty(): number {
+		const selectedDifficultyIndex = this.difficultyController.selectedIndex;
+		const difficulty = this.difficultyController.options[selectedDifficultyIndex].value;
+
+		return parseInt(difficulty);
 	}
 
 }

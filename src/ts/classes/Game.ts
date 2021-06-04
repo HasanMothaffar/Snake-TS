@@ -114,7 +114,7 @@ export default class Game {
 	public pause(): void {
 		clearInterval(this.gameInterval);
 		this.running = false;
-		this.changeGameState('paused');
+		this.changeGameState('Paused...');
 	}
 
 	/**
@@ -155,7 +155,8 @@ export default class Game {
 	/**
 	 * Switches color themes between dark and white modes.
 	 */
-	public switchColorTheme() {
+	public switchColorTheme(): void {
+		document.documentElement.classList.toggle('dark');
 		this.canvas.switchColorTheme();
 
 		// Updates the canvas with new colors and redraws all elements on it
@@ -168,7 +169,7 @@ export default class Game {
 	 * Changes the game's difficulty by increasing the main loop's speed.
 	 * @param difficulty The new difficulty (new loop's speed).
 	 */
-	public changeDifficulty(difficulty: number) {
+	public changeDifficulty(difficulty: number): void {
 		this.gameSpeed = difficulty;
 		
 		/* 
