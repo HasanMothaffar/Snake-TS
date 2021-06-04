@@ -114,6 +114,7 @@ export default class Game {
 	public pause(): void {
 		clearInterval(this.gameInterval);
 		this.running = false;
+		this.changeGameState('paused');
 	}
 
 	/**
@@ -123,6 +124,7 @@ export default class Game {
 		if (!this.running) {
 			this.gameInterval = setInterval(this.renderGame.bind(this), this.gameSpeed);
 			this.running = true;
+			this.changeGameState('');
 		}
 	}
 
@@ -174,9 +176,18 @@ export default class Game {
 			immediately run after changing the difficulty, even if it were paused
 			in the first place.		
 		*/ 
-		if (this.running) {
+		if (this.isGameRunning()) {
 			clearInterval(this.gameInterval);
 			this.gameInterval = setInterval(this.renderGame.bind(this), this.gameSpeed);
 		}
+	}
+
+	/**
+	 * Changes the game state to indicate whether it's running or paused.
+	 * @param state Next game state.
+	 */
+	private changeGameState(state: string): void {
+		const gameStateDiv = document.querySelector('.game-state') as HTMLDivElement;
+		gameStateDiv.innerHTML = state;
 	}
 }

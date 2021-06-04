@@ -1,12 +1,29 @@
-import Game from "../classes/Game.js";
+import Game from "../classes/Game";
 
 export default class DifficultyHanlder {
+	/**
+	 * The modal that contains the options of the game.
+	 */
 	private optionsModal = document.querySelector('.options') as HTMLDivElement;
+
+	/**
+	 * The button that opens the options modal.
+	 */
 	private optionsModalOpenButton = document.querySelector('.open-modal') as HTMLButtonElement;
+
+	/**
+	 * The button that closes the options modal. It's placed inside the modal itself.
+	 */
 	private optionsModalCloseButton= document.querySelector('.close-modal') as HTMLButtonElement;;
 
+	/**
+	 * The theme toggle button.
+	 */
 	private darkModeInput: HTMLInputElement = document.getElementById('dark_mode_input') as HTMLInputElement;
 
+	/**
+	 * The select tag that changes the game's difficulty.
+	 */
 	private difficultyController = document.getElementById('game-difficulty') as HTMLSelectElement;
 
 	/**
@@ -14,7 +31,7 @@ export default class DifficultyHanlder {
 	 * @param snakeGame Snake game instance to attach the event listeners to.
 	 */
 	constructor(private snakeGame: Game) { 
-		// Options modal
+		// Options modal close and open buttons
 		this.optionsModalOpenButton.addEventListener('click', (event: Event) => this.openOptionsModal());
 		this.optionsModalCloseButton.addEventListener('click', (event: Event) => this.closeOptionsModal());
 
@@ -25,16 +42,24 @@ export default class DifficultyHanlder {
 		this.difficultyController.addEventListener('change', (event: Event) => this.changeDifficulty(event));
 	}
 
+	/**
+	 * Opens the options modal, which causes the game to pause.
+	 */
 	private openOptionsModal(): void {
 		this.snakeGame.pause();
 		this.optionsModal.classList.add('open');
 	}
 
+	/**
+	 * Closes the options modal.
+	 */
 	private closeOptionsModal(): void {
-		this.snakeGame.resume();
 		this.optionsModal.classList.remove('open');
 	}
 
+	/**
+	 * Changes the game's theme.
+	 */
 	private changeTheme(): void {
 		document.documentElement.classList.toggle('dark');
 		this.snakeGame.switchColorTheme();
