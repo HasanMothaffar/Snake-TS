@@ -1,7 +1,6 @@
 import { Drawable, ColorTheme } from "../models/index";
 
 export default class Canvas {
-
 	/**
 	 * The canvas' DOM element reference.
 	 */

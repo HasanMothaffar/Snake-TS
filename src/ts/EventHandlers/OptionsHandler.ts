@@ -9,12 +9,12 @@ export default class DifficultyHanlder {
 	/**
 	 * The button that opens the options modal.
 	 */
-	private optionsModalOpenButton = document.querySelector('.open-modal') as HTMLButtonElement;
+	private optionsModalOpenButton = document.querySelector('.btn--open-modal') as HTMLButtonElement;
 
 	/**
 	 * The button that closes the options modal. It's placed inside the modal itself.
 	 */
-	private optionsModalCloseButton= document.querySelector('.close-modal') as HTMLButtonElement;;
+	private optionsModalCloseButton= document.querySelector('.btn--close-modal') as HTMLButtonElement;;
 
 	/**
 	 * The theme toggle button.
