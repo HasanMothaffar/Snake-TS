@@ -47,26 +47,3 @@
 		transform: translateY(20rem);
 	}
 }
-
-.open-modal {
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	font-family: Poppins;
-	font-weight: bold;
-
-	padding: 0.3rem;
-
-	svg {
-		margin-left: 1rem;
-	}
-}
-
-.close-modal {
-	margin-left: auto;
-	margin-bottom: 1rem;
-
-	cursor: pointer;
-}

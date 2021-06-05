@@ -1,4 +1,14 @@
-#mobile-controls {
+.game-controls-container {
+	display: none;
+
+	button {
+		font-weight: bold;
+		padding: 0.5rem;
+		font-size: 1.1rem;
+	}
+}
+
+#mobile-arrows {
 	display: none;
 	position: relative;
 
@@ -8,50 +18,21 @@
 	margin: 0 auto;
 }
 
-.btn--control {
-	position: absolute;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	border-radius: 50%;
-	border: none;
-
-	width: 50px;
-	height: 50px;
-
-	transition: 0.2s all ease-in;
-
-	background-color: var(--arrow-background);
-
-	&[data-code="ArrowUp"] {
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	&[data-code="ArrowRight"] {
-		right: 0;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-
-	&[data-code="ArrowDown"] {
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
-	}
-
-	&[data-code="ArrowLeft"] {
-		left: 0;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-}
-
 @media (max-width: 768px) {
-	#mobile-controls {
+	#mobile-arrows {
 		display: block !important;
+		margin-left: 2rem;
+	}
+
+	.game-controls-container {
+		display: flex;
+		justify-content: space-around;
+
+		width: 100%;
+	}
+
+	.move-controls-container {
+		display: flex;
+		position: relative;
 	}
 }
