@@ -2,10 +2,14 @@
 	--text-color: #000000;
 	--cavnas-border-color: silver;
 	--arrow-background: white;
+
+	--options-background: #c0b8c8;
 }
 
 :root.dark {
 	--text-color: silver;
 	--cavnas-border-color: silver;
 	--arrow-background: #454141;
+	
+	--options-background: #454141;
 }
