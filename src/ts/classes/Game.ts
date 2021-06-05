@@ -42,24 +42,33 @@ export default class Game {
 	 * The game stops whenever the snake hits any of the canvas' boundaries or eats itself.
 	 */
 	private hasSnakeGameEnded(): boolean {
-
-		// The snake can only eat one of its own tiles if its length is > 4
 		const head = this.snake.snakeHead;
-		for (let i = 4; i < this.snake.tiles.length; i++) {
-			// Checking if the snake's head collides with any of its other tiles
-			if (this.snake.tiles[i].x === head.x && this.snake.tiles[i].y === head.y) {
-				return true;
+		const context: Game = this;
+
+		return snakeAteItself(context) || snakeHitBoundaries(context);
+
+
+		function snakeAteItself(context: Game): boolean {
+			// The snake can only eat one of its own tiles if its length is > 4
+			for (let i = 4; i < context.snake.tiles.length; i++) {
+				// Checking if the snake's head collides with any of its other tiles
+				if (context.snake.tiles[i].x === head.x && context.snake.tiles[i].y === head.y) {
+					return true;
+				}
 			}
+
+			return false;
 		}
 
-		// Check if the snake hit any of the boundaries
-		// The tile with the coordinate 'this.canvas.width - this.snake.tileSize' is the last tile in the canvas.
-		const hitLeftWall = head.x < 0;
-		const hitRightWall = head.x > this.canvas.width - this.snake.tileSize; 
-		const hitToptWall = head.y < 0;
-		const hitBottomWall = head.y > this.canvas.height - this.snake.tileSize;
+		function snakeHitBoundaries(context: Game) {
+			// The tile with the coordinate 'context.canvas.width - context.snake.tileSize' is the last tile in the canvas.
+			const hitLeftWall = head.x < 0;
+			const hitRightWall = head.x > context.canvas.width - context.snake.tileSize; 
+			const hitToptWall = head.y < 0;
+			const hitBottomWall = head.y > context.canvas.height - context.snake.tileSize;
 
-		return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall;
+			return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall;
+		}
 	}
 
 	/**
@@ -84,9 +93,9 @@ export default class Game {
 	private renderGame(): void {
 
 		if (this.hasSnakeGameEnded()) {
-			alert('Snake is dead. Press "r" to restart the game.');
 			clearInterval(this.gameInterval);
 			this.running = false;
+			this.changeGameState('You died :( Press "R" to restart the game.')
 			return;
 		}
 
@@ -105,6 +114,7 @@ export default class Game {
 			this.gameInterval = setInterval(this.renderGame.bind(this), this.gameSpeed);
 			this.food.generateCoordinates(this.snake.tiles);
 			this.running = true;
+			this.changeGameState('')
 		}
 	}
 
@@ -134,6 +144,7 @@ export default class Game {
 	public restart(): void {
 		this.snake.resetCoordinates();
 		this.resetScore();
+		this.changeGameState('')
 
 		/* 
 			It's necessary that the food coordinates be generated 
