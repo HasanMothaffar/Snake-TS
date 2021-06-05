@@ -1,145 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<!-- Primary Meta Tags -->
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="A typescript implementation for the famous snake game.">
-	<meta name="author" content="Hasan Mothaffar">
-	
-	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="https://github.com/HasanMothaffar/Snake-TS">
-	<meta property="og:title" content="Snake Game | TypeScript Version">
-	<meta property="og:description" content="A typescript implementation for the famous snake game.">
-	<!-- <meta property="og:image" content="https://github.com/HasanMothaffar/Snake-TSassets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
-	
-	<!-- Twitter -->
-	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://github.com/HasanMothaffar/Snake-TS">
-	<meta property="twitter:title" content="Snake Game | TypeScript Version">
-	<meta property="twitter:description" content="A typescript implementation for the famous snake game.">
-	<!-- <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
+	<head>
+		<!-- Primary Meta Tags -->
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="description"
+			content="A typescript implementation for the famous snake game."
+		/>
+		<meta name="author" content="Hasan Mothaffar" />
 
-	<title>Snake Game | TypeScript Version</title>
-	<link rel="stylesheet" href="./dist/css/app.css">
-</head>
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta
+			property="og:url"
+			content="https://github.com/HasanMothaffar/Snake-TS"
+		/>
+		<meta property="og:title" content="Snake Game | TypeScript Version" />
+		<meta
+			property="og:description"
+			content="A typescript implementation for the famous snake game."
+		/>
+		<!-- <meta property="og:image" content="https://github.com/HasanMothaffar/Snake-TSassets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
 
-<body class="gradient">
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta
+			property="twitter:url"
+			content="https://github.com/HasanMothaffar/Snake-TS"
+		/>
+		<meta
+			property="twitter:title"
+			content="Snake Game | TypeScript Version"
+		/>
+		<meta
+			property="twitter:description"
+			content="A typescript implementation for the famous snake game."
+		/>
+		<!-- <meta property="twitter:image" content="https://metatags.io/assets/meta-tags-16a33a6a8531e519cc0936fbba0ad904e52d35f34a46c97a2c9f6f7dd7d336f2.png"> -->
 
-	<div>
-		<canvas id="snakeBoard" width="300" height="300"></canvas>
-	</div>
+		<title>Snake Game | TypeScript Version</title>
+		<link rel="stylesheet" href="./dist/css/app.css" />
+	</head>
 
-	<div>
-		<!-- <div>
-			<button>
-				Start
+	<body class="gradient">
+		<div>
+			<canvas id="snakeBoard" width="300" height="300"></canvas>
+		</div>
+
+		<div class="game-controls-container">
+			<button data-toggle="start">
+				Start/Pause
 			</button>
-			
-			<button>
-				Pause
-			</button>
 
-			<button>
+			<button data-toggle="restart">
 				Restart
 			</button>
-		</div> -->
-		<div class="game-state">
-			<!-- Paused or running -->
 		</div>
 
-		<button class="open-modal">
-			Options
-		</button>
+		<div class="move-controls-container">
+			<div>
+				<button class="btn--open-modal">
+					Options
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="19.455"
+						height="20"
+						viewBox="0 0 19.455 20"
+					>
+						<path
+							d="M857,3458.5a3.5,3.5,0,1,1,3.5-3.5A3.5,3.5,0,0,1,857,3458.5Zm7.43-2.52a6.9,6.9,0,0,0,0-1.96l2.11-1.65a.5.5,0,0,0,.12-.64l-2-3.46a.5.5,0,0,0-.609-.22l-2.491,1a7.281,7.281,0,0,0-1.69-.98l-.379-2.65A.487.487,0,0,0,859,3445h-4a.487.487,0,0,0-.489.42l-.381,2.65a7.661,7.661,0,0,0-1.689.98l-2.49-1a.489.489,0,0,0-.611.22l-2,3.46a.493.493,0,0,0,.12.64l2.111,1.65a6.79,6.79,0,0,0,0,1.96l-2.111,1.65a.5.5,0,0,0-.12.64l2,3.46a.5.5,0,0,0,.611.22l2.49-1a7.305,7.305,0,0,0,1.689.98l.381,2.65a.487.487,0,0,0,.489.42h4a.487.487,0,0,0,.491-.42l.379-2.65a7.648,7.648,0,0,0,1.69-.98l2.491,1a.487.487,0,0,0,.609-.22l2-3.46a.5.5,0,0,0-.12-.64Z"
+							transform="translate(-847.27 -3445)"
+							fill="#0D1C45"
+						/>
+					</svg>
+				</button>
+			</div>
 
-		<em class="start-label">Press space to start/pause the game</em>
+			<div class="game-state">
+				<!-- Paused or running -->
+			</div>
 
-		<div class="score">
-			<span>
-				Score:
-			</span>
-		
-			<span id="score">
-				0
-			</span>
+			<em class="start-label">Press space to start/pause the game 🐍</em>
 
-			<span class="score-animation">
-				+1
-			</span>
+			<div class="score-container">
+				<span> Score: </span>
+
+				<span id="score"> 0 </span>
+
+				<span class="score-animation"> +1 </span>
+			</div>
+
+			<div id="mobile-arrows">
+				<button class="btn--control" data-code="ArrowLeft">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="26.846"
+						height="26.828"
+						viewBox="0 0 26.846 26.828"
+					>
+						<path
+							d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
+							transform="translate(819.847 1166.828) rotate(180)"
+							fill="#a3b5bf"
+						/>
+					</svg>
+				</button>
+
+				<button class="btn--control" data-code="ArrowUp">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="26.828"
+						height="26.846"
+						viewBox="0 0 26.828 26.846"
+					>
+						<path
+							d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
+							transform="translate(-1140 819.847) rotate(-90)"
+							fill="#a3b5bf"
+						/>
+					</svg>
+				</button>
+
+				<button class="btn--control" data-code="ArrowDown">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="26.828"
+						height="26.846"
+						viewBox="0 0 26.828 26.846"
+					>
+						<path
+							d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
+							transform="translate(1166.828 -793.001) rotate(90)"
+							fill="#a3b5bf"
+						/>
+					</svg>
+				</button>
+
+				<button class="btn--control" data-code="ArrowRight">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="26.846"
+						height="26.828"
+						viewBox="0 0 26.846 26.828"
+					>
+						<path
+							d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
+							transform="translate(-793.001 -1140)"
+							fill="#a3b5bf"
+						/>
+					</svg>
+				</button>
+			</div>
 		</div>
 
-		<div id="mobile-controls">
-			<button class="btn--control" data-code="ArrowLeft">
-				<svg xmlns="http://www.w3.org/2000/svg" width="26.846" height="26.828" viewBox="0 0 26.846 26.828">
-					<path d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
-						transform="translate(819.847 1166.828) rotate(180)" fill="#a3b5bf" />
+		<div class="options">
+			<button class="btn--close-modal">
+				<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+					<path d="M752,3779.007,750.993,3778,747,3781.993,743.007,3778,742,3779.007l3.993,3.993L742,3786.993l1.008,1.007,3.993-3.993,3.993,3.993,1.007-1.007L748.006,3783Z" transform="translate(-741.999 -3778)" fill="#0d1c45"/>
 				</svg>
 
 			</button>
 
-			<button class="btn--control" data-code="ArrowUp">
-				<svg xmlns="http://www.w3.org/2000/svg" width="26.828" height="26.846" viewBox="0 0 26.828 26.846">
-					<path d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
-						transform="translate(-1140 819.847) rotate(-90)" fill="#a3b5bf" />
-				</svg>
+			<div class="options__group">
+				<input
+					id="dark_mode_input"
+					name="dark_mode_input"
+					type="checkbox"
+					class="toggle"
+					autocomplete="off"
+					checked
+				/>
+				<label for="dark_mode_input">Dark Mode</label>
+			</div>
 
-			</button>
+			<div class="options__group">
+				<select name="game-difficulty" id="game-difficulty">
+					<option value="300">Easy</option>
 
-			<button class="btn--control" data-code="ArrowDown">
-				<svg xmlns="http://www.w3.org/2000/svg" width="26.828" height="26.846" viewBox="0 0 26.828 26.846">
-					<path d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
-						transform="translate(1166.828 -793.001) rotate(90)" fill="#a3b5bf" />
-				</svg>
+					<option value="200">Medium</option>
 
-			</button>
+					<option value="100">Hard</option>
 
-			<button class="btn--control" data-code="ArrowRight">
-				<svg xmlns="http://www.w3.org/2000/svg" width="26.846" height="26.828" viewBox="0 0 26.846 26.828">
-					<path d="M819.847,1153.414l-14.225,13.414-2.939-3.309,9.311-8.171H793l.123-3.9h18.869l-9.311-8.209,3.162-3.241Z"
-						transform="translate(-793.001 -1140)" fill="#a3b5bf" />
-				</svg>
-			</button>
+					<option value="50">HARDCORE</option>
+				</select>
+
+				<label for="game-difficulty"> Difficulty </label>
+			</div>
 		</div>
-	</div>
 
-	<div class="options">
-		
-		<button class="close-modal">
-			Close
-		</button>
-		
-		<div class="input-group">
-			<input id="dark_mode_input" name="dark_mode_input" type="checkbox" class="toggle" autocomplete="off" checked>
-			<label for="dark_mode_input">Dark Mode</label>
-		</div>
-	
-		<div class="input-group">
-			<select name="game-difficulty" id="game-difficulty">
-				<option value="300">
-					Easy
-				</option>
-	
-				<option value="200">
-					Medium
-				</option>
-	
-				<option value="100">
-					Hard
-				</option>
-	
-				<option value="50">
-					HARDCORE
-				</option>
-			</select>
-	
-			<label for="game-difficulty">
-				Difficulty
-			</label>
-		</div>
-	</div>
-
-	<script src="/dist/js/index.js" type="module"></script>
-</body>
-
+		<script src="/dist/js/index.js" type="module"></script>
+	</body>
 </html>
