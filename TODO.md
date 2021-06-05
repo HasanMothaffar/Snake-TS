@@ -1,7 +1,7 @@
 ## Core
 
 - [x] Add the ability to change the game's difficulty using a select tag.
-- [ ] Implement touch support. (WIP)
+- [x] Implement touch support.
 
 ## Enhancements
 
