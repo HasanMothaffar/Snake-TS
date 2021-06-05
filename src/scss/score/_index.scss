@@ -1,6 +1,4 @@
-.score {
-	height: 30px;
-
+.score-container {
 	font-size: 1.2rem;
 	font-weight: 500;
 	
@@ -30,5 +28,12 @@
 	to {
 		opacity: 0;
 		transform: translateY(-2rem);
+	}
+}
+
+@media (max-width: 768px) {
+	.score-container {
+		left: 2%;
+		top: 40%;
 	}
 }

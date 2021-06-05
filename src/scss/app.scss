@@ -1,3 +1,4 @@
+@use "./buttons";
 @use "./gradients";
 @use "./mobile_controls";
 @use "./options";
@@ -56,12 +57,19 @@ canvas {
 }
 
 @media (max-width: 768px) {
+	
+
 	.start-label {
 		display: none;
 	}
 
-	.second-column {
-		display: flex;
+	
+
+	.game-state {
+		position: absolute;
+		
+		top: -20%;
+		margin: 0;
 	}
 }
 
