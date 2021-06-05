@@ -1,6 +1,6 @@
-import { Tile } from "../models/index";
+import { Drawable, Tile } from "../models/index";
 
-export default class Food {
+export default class Food implements Drawable{
 	/**
 	 * The food's X coordinate.
 	 */
