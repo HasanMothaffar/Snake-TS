@@ -20,6 +20,7 @@ html {
 	font-size: 16px;
 	font-family: Poppins;
 	color: var(--text-color);
+
 	overflow-x: hidden;
 }
 
@@ -38,8 +39,8 @@ body {
 }
 
 /*
-	Canvas elements actually require both css styles and inline html styles.
-	Read more about this on the Internet
+* Canvas elements actually require both css styles and inline html styles.
+* Read more about this on the Internet
 */
 canvas {
 	background: white;
@@ -47,37 +48,6 @@ canvas {
 	border: 1px solid var(--cavnas-border-color);
 
 	transition: border-color 0.2s ease-in;
-}
-
-input[type="checkbox"] {
-	appearance: none;
-}
-
-.input-group {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	
-	width: 21rem;
-	margin-bottom: 1.5rem;
-
-	position: relative;
-
-	label {
-		font-size: 1.5rem;
-		font-weight: bold;
-	}
-
-	select {
-
-		/*
-			For some reason, select tags do not inherit the font-size
-			and font-family properties. You have to explicitly specify this.
-		*/
-		
-		font-family: inherit;
-		font-size: inherit;
-	}
 }
 
 .game-state {

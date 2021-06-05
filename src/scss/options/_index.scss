@@ -1,2 +1,59 @@
-@use "./modal";
-@use "./switch_button";
+@use "./custom_checkbox";
+
+.options {
+	display: flex;
+	flex-flow: column;
+
+	position: absolute;
+	top: 0;
+
+	background: gray;
+
+	padding: 2rem 3rem;
+
+	border-radius: 15px;
+
+	transform: translateY(-20rem);
+
+	transition: 1s all ease-out;
+
+	&__group {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		width: 21rem;
+		margin-bottom: 1.5rem;
+
+		position: relative;
+
+		label {
+			font-size: 1.5rem;
+			font-weight: bold;
+		}
+
+		select {
+			/*
+				For some reason, select tags do not inherit the font-size
+				and font-family properties. You have to explicitly specify this.
+			*/
+			font-family: inherit;
+			font-size: inherit;
+		}
+	}
+
+	&.open {
+		transform: translateY(20rem);
+	}
+}
+
+.open-modal {
+	cursor: pointer;
+}
+
+.close-modal {
+	margin-left: auto;
+	margin-bottom: 1rem;
+
+	cursor: pointer;
+}
