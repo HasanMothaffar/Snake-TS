@@ -35,7 +35,7 @@ body {
 	align-items: center;
 	justify-content: space-around;
 
-	transition: all .2s ease-out;
+	transition: all .2s ease-in;
 }
 
 /*
@@ -52,11 +52,16 @@ canvas {
 
 .game-state {
 	height: 30px;
+	margin: 10px 0;
 }
 
 @media (max-width: 768px) {
 	.start-label {
 		display: none;
+	}
+
+	.second-column {
+		display: flex;
 	}
 }
 

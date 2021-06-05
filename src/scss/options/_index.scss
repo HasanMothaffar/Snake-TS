@@ -7,7 +7,8 @@
 	position: absolute;
 	top: 0;
 
-	background: gray;
+	background: var(--options-background);
+	box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
 
 	padding: 2rem 3rem;
 
@@ -15,7 +16,7 @@
 
 	transform: translateY(-20rem);
 
-	transition: 1s all ease-out;
+	transition: transform 1s ease-out, color 0.2s ease-in, background 0.2s ease-in;
 
 	&__group {
 		display: flex;
@@ -49,6 +50,18 @@
 
 .open-modal {
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-family: Poppins;
+	font-weight: bold;
+
+	padding: 0.3rem;
+
+	svg {
+		margin-left: 1rem;
+	}
 }
 
 .close-modal {
