@@ -1,6 +1,6 @@
 import Game from "../classes/Game";
 import KeyboardHandler from "./KeyboardHandler";
-import TouchHanlder from "./TouchHandler";
+import TouchHandler from "./TouchHandler";
 import ScoreHandler from "./ScoreHandler";
 import OptionsHandler from "./OptionsHandler";
 
@@ -12,7 +12,7 @@ export function registerEventHandlers(snakeGame: Game): void {
 
 	/* -- Controls -- */
 	const keyboardHandler = new KeyboardHandler(snakeGame);
-	const touchHandler = new TouchHanlder(snakeGame);
+	const touchHandler = new TouchHandler(snakeGame);
 
 	/* -- Score -- */
 	const scoreHandler = new ScoreHandler(snakeGame);
