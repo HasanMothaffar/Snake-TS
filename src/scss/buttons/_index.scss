@@ -45,24 +45,51 @@
 			top: 0;
 			left: 50%;
 			transform: translateX(-50%);
+
+			&:focus,
+			&:active {
+				transform: translateX(-50%) scale(1.2);
+			}
 		}
 
 		&[data-code="ArrowRight"] {
 			right: 0;
 			top: 50%;
 			transform: translateY(-50%);
+
+			&:focus,
+			&:active {
+				transform: translateY(-50%) scale(1.2);
+			}
 		}
 
 		&[data-code="ArrowDown"] {
 			bottom: 0;
 			left: 50%;
 			transform: translateX(-50%);
+
+			&:focus,
+			&:active {
+				transform: translateX(-50%) scale(1.2);
+			}
 		}
 
 		&[data-code="ArrowLeft"] {
 			left: 0;
 			top: 50%;
 			transform: translateY(-50%);
+
+
+			&:focus,
+			&:active {
+				transform: translateY(-50%) scale(1.2);
+			}
+		}
+
+		&:focus,
+		&:active
+		{
+			background-color: gray;
 		}
 	}
 }
