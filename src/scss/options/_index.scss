@@ -47,3 +47,13 @@
 		transform: translateY(20rem);
 	}
 }
+
+@media (max-width: 576px) {
+	.options {
+		padding: 2rem;
+		
+		&__group {
+			width: 20rem;
+		}
+	}
+}
