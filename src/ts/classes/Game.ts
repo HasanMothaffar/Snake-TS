@@ -72,11 +72,12 @@ export default class Game {
 	}
 
 	/**
-	 * Resets the player's score to 0.
+	 * Dispatches a 'reset-score' event to reset the player's score.
+	 * 
+	 * The listener for this event is in the ScoreHandler class.
 	 */
-	private resetScore() {
-		const score = document.getElementById('score')!;
-		score.innerHTML = (0).toString();
+	private dispatchResetScoreEvent() {
+		document.dispatchEvent(new Event('reset-score'));
 	}
 
 	/**
@@ -143,7 +144,7 @@ export default class Game {
 	 */
 	public restart(): void {
 		this.snake.resetCoordinates();
-		this.resetScore();
+		this.dispatchResetScoreEvent();
 		this.changeGameState('')
 
 		/* 
