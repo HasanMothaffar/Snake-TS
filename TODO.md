@@ -11,6 +11,8 @@
 - [x] Add score animations.
 - [x] Add game state indicator (paused, running).
 
+- [ ] Create a game-state container that's specific for smaller screens.
+
 - [x] Hide options and show them in a popup when the user click the options icon.
 - [ ] Implement high score using localStorage.
 
