@@ -12,6 +12,11 @@ export default class ScoreHandler {
 	private scoreAnimationSpan: HTMLSpanElement;
 
 	/**
+	 * The sound effect to play when the snake eats a piece of food.
+	 */
+	private foodEatenAudio = new Audio('/dist/sounds/eat-food.wav');
+
+	/**
 	 * Initializes score event listeners for the snake game.
 	 * @param snakeGame Snake game instance to attach the event listeners to.
 	 */
@@ -19,26 +24,27 @@ export default class ScoreHandler {
 		this.scoreSpan = document.getElementById('score')!;
 		this.scoreAnimationSpan = document.querySelector('.score-animation')!;
 
-		document.addEventListener('food-eaten', this);
+		document.addEventListener('food-eaten', () => this.increaseScore());
+		document.addEventListener('reset-score', () => this.resetScore());
 	}
 
 	/**
-	 * Increases the game's score by 1.
-	 * @param event The 'food-eaten' custom event.
+	 * Increases the player's score by 1.
 	 */
-	public handleEvent() {
-		this.updateScoreText();
-		this.playScoreAnimation();
-	}
-
-	/**
-	 * Updates the innerHTML property of the score span.
-	 */
-	private updateScoreText() {
+	private increaseScore(): void {
 		let currentScore = this.scoreSpan.innerHTML;
 		let newScore = parseInt(currentScore) + 1;
 
 		this.scoreSpan.innerHTML = newScore.toString();
+		this.playScoreAnimation();
+		this.foodEatenAudio.play();
+	}
+
+	/**
+	 * Resets the player's score to 0.
+	 */
+	private resetScore(): void {
+		this.scoreSpan.innerHTML = '0';
 	}
 
 	/**
