@@ -40,8 +40,8 @@ export default class Canvas {
 
 	/**
 	 * Sets the correct width and height values for the canvas.
-	 * @param width 
-	 * @param height 
+	 * @param width Width of the canvas.
+	 * @param height Height of the canvas.
 	 */
 	public adjustDimensions(width: number, height: number): void {
 		// These are html attributes, which are required for proper rendering of the canvas element.
