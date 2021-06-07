@@ -14,7 +14,7 @@ export default class ScoreHandler {
 	/**
 	 * The sound effect to play when the snake eats a piece of food.
 	 */
-	private foodEatenAudio = new Audio('/dist/sounds/eat-food.wav');
+	private foodEatenAudio = new Audio('./dist/sounds/eat-food.wav');
 
 	/**
 	 * Initializes score event listeners for the snake game.
