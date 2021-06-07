@@ -71,7 +71,7 @@ export default class Snake implements Drawable {
 	/**
 	 * Dispatches a 'food-eaten' event in order for the score to increase.
 	 * 
-	 * The listener for this event can be found in the index.ts file.
+	 * The listener for this event is in the ScoreHandler class.
 	 */
 	private dispatchFoodEatenEvent(): void {
 		document.dispatchEvent(new Event('food-eaten'));
