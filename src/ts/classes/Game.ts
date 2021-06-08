@@ -145,7 +145,10 @@ export default class Game {
 	public restart(): void {
 		this.snake.resetCoordinates();
 		this.dispatchResetScoreEvent();
-		this.changeGameState('')
+		this.changeGameState('');
+		clearInterval(this.gameInterval);
+		this.running = false;
+		
 
 		/* 
 			It's necessary that the food coordinates be generated 
