@@ -28,6 +28,20 @@ export default class Snake implements Drawable {
 	private horizontalSpeed: number = (-1) * this.tileSize;
 
 	/**
+	 * A flag that indicates whether the snake can change its direction
+	 * in the current game loop.
+	 * 
+	 * It's used to prevent the snake from going into the reverse direction, for example going up and then immediately down.
+	 * 
+	 * Once the snake changes its direction, it would have to wait
+	 * until the snake actually moves to be able to change its direction again.
+	 * 
+	 * The implementation of this idea can be found in the `Snake.move` and
+	 * `Snake.changeDirection` functions.
+	 */
+	private canChangeDirection: boolean = true;
+
+	/**
 	 * The snake's tiles' array.
 	 */
 	private _tiles: Tile[] = [];
@@ -124,6 +138,8 @@ export default class Snake implements Drawable {
 		else {
 			this.tiles.pop();
 		}
+
+		this.canChangeDirection = true;
 	}
 
 	/**
@@ -160,10 +176,8 @@ export default class Snake implements Drawable {
 	 * @param pressedKeyCode The code of the pressed key.
 	 */
 	public changeDirection(pressedKeyCode: string): void {
-
-		// if (this._changingDirection) return; //used to prevent the snake from going into the reverse direction. for example, going up and then down
-		// the snake would have to wait for this function to return and for the Game loop to run again to be able to change direction
-		// this._changingDirection = true;
+		if (this.canChangeDirection === false) return;
+		this.canChangeDirection = false;
 
 		const goingUp = this.verticalSpeed === (-1) * this.tileSize;
 		const goingDown = this.verticalSpeed === this.tileSize;
