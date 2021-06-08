@@ -2,7 +2,9 @@
 
 The TypeScript version has finally made it! 
 
-> The project and this readme file are still a work in progress. Expecting to finish in 2 days :)
+> Favicons are provided by https://icons.iconarchive.com.
+> 
+> This readme file is still a work in progress! Expecting to finish it in three days.
 
 ## Getting Started
 
