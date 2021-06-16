@@ -1,3 +1,4 @@
+import "../scss/app.scss";
 import SnakeGame from "./classes/Game";
 import Snake from "./classes/Snake";
 import Canvas from "./classes/Canvas";
