@@ -2,7 +2,7 @@ import "../scss/app.scss";
 import SnakeGame from "./classes/Game";
 import Snake from "./classes/Snake";
 import Canvas from "./classes/Canvas";
-import { registerEventHandlers } from "./eventHandlers/index";
+import { registerEventHandlers } from "./handlers/index";
 
 
 // Reduce the dimensions of the canvas on smaller screens. This only happens when the game is loaded.
